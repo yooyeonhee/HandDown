@@ -2,9 +2,8 @@ import styled from "@emotion/styled";
 import { ChangeEvent } from "react";
 
 interface IInfoInputProps {
-  title: string;
-  placeholder: string | undefined;
-  disabled?: boolean;
+  label?: string;
+  placeholder?: string | undefined;
   type?: string;
   defaultValue?: string;
   readOnly?: boolean;
@@ -17,29 +16,45 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 10px 0px;
 `;
-const InputTitle = styled.div`
+const InputLabel = styled.div`
   width: 100%;
   font-size: 15px;
   font-family: level;
   font-weight: 400;
   color: #cbcbcb;
+  :focus-within {
+    color: #88d6ec;
+  }
 `;
-const Input = styled.input``;
+const Input = styled.input`
+  width: 100%;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #cbcbcb;
+  color: #404040;
+  font-size: 20px;
+  :focus {
+    outline: none;
+    border-bottom: 2px solid #88d6ec;
+  }
+`;
 
 export default function InfoInput(props: IInfoInputProps) {
   return (
     <Wrapper>
-      <InputTitle>{props.title}</InputTitle>
-      <Input
-        placeholder={props?.placeholder}
-        onChange={props?.onChange}
-        disabled={props?.disabled}
-        type={props?.type}
-        readOnly={props?.readOnly}
-        defaultValue={props?.defaultValue}
-        {...props?.register}
-      ></Input>
+      <InputLabel>
+        {props.label}
+        <Input
+          placeholder={props?.placeholder}
+          onChange={props?.onChange}
+          type={props?.type}
+          readOnly={props?.readOnly}
+          defaultValue={props?.defaultValue}
+          {...props?.register}
+        ></Input>
+      </InputLabel>
     </Wrapper>
   );
 }
