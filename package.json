@@ -9,19 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "antd": "^4.21.0",
+    "graphql": "^16.5.0",
     "next": "12.1.6",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-slick": "^0.29.0"
+    "react-slick": "^0.29.0",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/node": "17.0.41",
     "@types/react": "17.0.2",
     "@types/react-dom": "17.0.2",
     "@types/react-slick": "^0.23.8",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "eslint": "^8.0.1",
