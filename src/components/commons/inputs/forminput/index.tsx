@@ -48,7 +48,6 @@ export default function FormInput(props: IFormInputProps) {
     <Wrapper>
       <InputLabel>{props.label}</InputLabel>
       <Input
-        contentEditable
         placeholder={props?.placeholder}
         onChange={props?.onChange}
         type={props?.type}
