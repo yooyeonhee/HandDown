@@ -24,6 +24,7 @@ export const ImageItemWrapper = styled.div`
   position: relative;
   overflow: auto;
   white-space: nowrap;
+  margin-bottom: 40px;
   cursor: pointer;
 `;
 export const ImageItem = styled.div`
@@ -36,5 +37,11 @@ export const ImageItem = styled.div`
   margin-right: 25px;
   display: flex;
   justify-content: center;
+  align-items: center;
+`;
+export const FormWrapper = styled.form`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 `;

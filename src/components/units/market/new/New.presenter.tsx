@@ -2,6 +2,7 @@ import * as S from "./New.styles";
 import UploadImage from "./UploadImage/UploadImage.container";
 import { v4 as uuidv4 } from "uuid";
 import { INewUIProps } from "./New.types";
+import FormInput from "../../../commons/inputs/forminput";
 export default function NewUI(props: INewUIProps) {
   return (
     <S.Body>
@@ -17,6 +18,9 @@ export default function NewUI(props: INewUIProps) {
             />
           ))}
         </S.ImageItemWrapper>
+        <S.FormWrapper>
+          <FormInput label="제품명*" />
+        </S.FormWrapper>
       </S.Wrapper>
     </S.Body>
   );

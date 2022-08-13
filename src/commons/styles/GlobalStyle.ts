@@ -11,7 +11,11 @@ export const globalStyles = css`
     src: url("/fonts/Football_B.woff");
   }
   @font-face {
-    font-family: "Level";
-    src: url("/fonts/Level.woff");
+    font-family: "LevelB";
+    src: url("/fonts/NEXON Lv2 Gothic Bold.woff");
+  }
+  @font-face {
+    font-family: "LevelL";
+    src: url("/fonts/NEXON Lv2 Gothic Light.woff");
   }
 `;
