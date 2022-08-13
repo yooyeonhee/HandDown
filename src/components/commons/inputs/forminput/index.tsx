@@ -26,9 +26,6 @@ const InputLabel = styled.div`
   }
 `;
 const Input = styled.input`
-  max-width: calc(100% - 32px);
-  min-width: 50px;
-  /* width: auto; */
   height: 50px;
   border: none;
   border-bottom: 2px solid #cbcbcb;
