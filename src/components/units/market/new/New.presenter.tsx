@@ -2,7 +2,10 @@ import * as S from "./New.styles";
 import UploadImage from "./UploadImage/UploadImage.container";
 import { v4 as uuidv4 } from "uuid";
 import { INewUIProps } from "./New.types";
+import "react-quill/dist/quill.snow.css";
 import FormInput from "../../../commons/inputs/forminput";
+import LowLine from "../../../commons/lines/rowline";
+import InputKakaoMap from "../../../commons/maps/inputmaps";
 export default function NewUI(props: INewUIProps) {
   return (
     <S.Body>
@@ -19,7 +22,47 @@ export default function NewUI(props: INewUIProps) {
           ))}
         </S.ImageItemWrapper>
         <S.FormWrapper>
-          <FormInput label="제품명*" />
+          <FormInput label="제품명*" placeholder="상품명을 입력해주세요." />
+          <FormInput
+            label="상품요약"
+            placeholder="상품에 대한 정보를 간략하게 작성해주세요."
+          />
+          <S.InputLabel>상품설명*</S.InputLabel>
+          <S.InputQuill
+          // defaultValue={props.productData?.fetchUseditem.contents}
+          // onChange={props.onChangeContents}
+          />
+          <FormInput
+            label="판매가격*"
+            placeholder="상품 가격을 작성해주세요."
+          />
+          <LowLine />
+          <S.ChooseWrapper>
+            <S.InputLabel style={{ width: "20vw" }}>거래방법*</S.InputLabel>
+            <S.ChooseDiv>
+              <S.ChooseOption type="radio" name="way" />
+              <S.ChooseLabel>만나서 거래</S.ChooseLabel>
+              <S.ChooseOption type="radio" name="way" />
+              <S.ChooseLabel>택배로 거래</S.ChooseLabel>
+            </S.ChooseDiv>
+          </S.ChooseWrapper>
+          <S.InputLabel>거래위치</S.InputLabel>
+          <S.AddressWrapper>
+            <S.Map>
+              <InputKakaoMap />
+            </S.Map>
+            <S.AddressInputWrapper>
+              <S.PostCode>
+                000000 <S.PostCodeBtn>우편번호 검색</S.PostCodeBtn>
+              </S.PostCode>
+              <S.Input readOnly placeholder="주소" />
+              <S.Input placeholder="상세주소를 입력해주세요." />
+            </S.AddressInputWrapper>
+          </S.AddressWrapper>
+          <S.ButtonWrapper>
+            <S.CancelBtn>취소</S.CancelBtn>
+            <S.SubmitBtn>등록</S.SubmitBtn>
+          </S.ButtonWrapper>
         </S.FormWrapper>
       </S.Wrapper>
     </S.Body>

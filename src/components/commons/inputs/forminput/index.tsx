@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 
 interface IFormInputProps {
   label?: string;
@@ -16,19 +16,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 50px;
 `;
 const InputLabel = styled.div`
+  width: 20%;
   font-size: 25px;
   color: #444444;
-  margin-right: 100px;
-  :focus-within {
-    color: #88d6ec;
-  }
+  /* margin-right: 100px; */
 `;
 const Input = styled.input`
+  width: 80%;
+  display: block;
   height: 50px;
   border: none;
-  border-bottom: 2px solid #cbcbcb;
   color: #404040;
   font-size: 20px;
   :focus {

@@ -5,7 +5,7 @@ import Header from "./header/Header.container";
 
 const Body = styled.div`
   width: 100%;
-  height: 100vw;
+  height: 100vh;
 `;
 interface ILayoutProps {
   children: ReactNode;
