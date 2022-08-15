@@ -1,4 +1,5 @@
 import InfoButton from "../../../commons/buttons/infobutton/infoButton";
+import DecoBox from "../../../commons/decoration/decobox";
 import InfoInput from "../../../commons/inputs/infoinput/InfoInput";
 import * as S from "./Login.styels";
 export default function LoginUI() {
@@ -9,7 +10,7 @@ export default function LoginUI() {
         <S.FormWrapper>
           <S.Logo></S.Logo>
           <S.Title>로그인</S.Title>
-          <S.DecoBox />
+          <DecoBox />
           <S.InputForm>
             <InfoInput label="이메일" type="string" />
             <InfoInput label="비밀번호" type="password" />

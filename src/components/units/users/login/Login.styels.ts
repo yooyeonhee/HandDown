@@ -49,12 +49,6 @@ export const Title = styled.div`
   font-family: Level;
   color: #404040;
 `;
-export const DecoBox = styled.div`
-  width: 50px;
-  height: 8px;
-  background-color: #88d6ec;
-  margin: 10px 0px;
-`;
 export const InputForm = styled.form`
   width: 100%;
   display: flex;

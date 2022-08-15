@@ -12,7 +12,7 @@ interface ILayoutProps {
 }
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();
-  const HIDDEN_HEADERS = ["/users/login", "/users/signup", "/"];
+  const HIDDEN_HEADERS = ["/users/login", "/users/signup"];
 
   const isHiddenHeader = HIDDEN_HEADERS.includes(router.asPath);
   return (

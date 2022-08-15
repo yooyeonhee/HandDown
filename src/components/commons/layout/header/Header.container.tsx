@@ -3,5 +3,8 @@ import HeaderUI from "./Header.presenter";
 
 export default function Header() {
   const router = useRouter();
-  return <HeaderUI />;
+  const HIDDEN_MENU = ["/"];
+
+  const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
+  return <HeaderUI isHiddenMenu={isHiddenMenu} />;
 }
