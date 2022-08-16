@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const Body = styled.div`
   width: 80%;
+  max-width: 1200px;
   margin: 0px auto;
   display: flex;
   flex-direction: column;

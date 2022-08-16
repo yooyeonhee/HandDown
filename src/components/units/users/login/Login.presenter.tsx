@@ -2,7 +2,8 @@ import InfoButton from "../../../commons/buttons/infobutton/infoButton";
 import DecoBox from "../../../commons/decoration/decobox";
 import InfoInput from "../../../commons/inputs/infoinput/InfoInput";
 import * as S from "./Login.styels";
-export default function LoginUI() {
+import { ILoginUIProps } from "./Login.types";
+export default function LoginUI(props: ILoginUIProps) {
   return (
     <S.Body>
       <S.Wrapper>
@@ -18,7 +19,9 @@ export default function LoginUI() {
           </S.InputForm>
           <S.AlertWrapper>
             <S.AlertMessage>아직 회원이 아니신가요?</S.AlertMessage>
-            <S.AlertButton>회원가입</S.AlertButton>
+            <S.AlertButton onClick={props.onClickToSignup}>
+              회원가입
+            </S.AlertButton>
           </S.AlertWrapper>
         </S.FormWrapper>
       </S.Wrapper>

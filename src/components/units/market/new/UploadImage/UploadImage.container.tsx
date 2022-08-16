@@ -23,8 +23,7 @@ export default function UploadImage(props: IUploadsImageProps) {
           file,
         },
       });
-      console.log(result);
-      props.onChangeFiles(props.index, result.data?.uploadFile[0]);
+      props.onChangeFiles(props.index, result.data?.uploadFile.url);
     } catch (error: any) {
       console.log(error);
     }

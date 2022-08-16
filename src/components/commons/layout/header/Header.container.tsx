@@ -6,5 +6,21 @@ export default function Header() {
   const HIDDEN_MENU = ["/", "/market", "/market/detail"];
 
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
-  return <HeaderUI isHiddenMenu={isHiddenMenu} />;
+  const onClickToLogin = () => {
+    router.push("/users/login");
+  };
+  const onClickToSignup = () => {
+    router.push("/users/signup");
+  };
+  const onClickToMarket = () => {
+    router.push("/market");
+  };
+  return (
+    <HeaderUI
+      isHiddenMenu={isHiddenMenu}
+      onClickToLogin={onClickToLogin}
+      onClickToSignup={onClickToSignup}
+      onClickToMarket={onClickToMarket}
+    />
+  );
 }

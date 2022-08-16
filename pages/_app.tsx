@@ -1,23 +1,23 @@
 import "../styles/globals.css";
+import "antd/dist/antd.css";
 import type { AppProps } from "next/app";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/GlobalStyle";
 import Layout from "../src/components/commons/layout";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { RecoilRoot } from "recoil";
+import ApolloSetting from "../src/components/commons/apollo";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const client = new ApolloClient({
-    uri: "http://backend07.codebootcamp.co.kr/graphql",
-    cache: new InMemoryCache(),
-  });
   return (
     <>
-      <Global styles={globalStyles} />
-      <ApolloProvider client={client}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ApolloProvider>
+      <RecoilRoot>
+        <ApolloSetting>
+          <Global styles={globalStyles} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloSetting>
+      </RecoilRoot>
     </>
   );
 }

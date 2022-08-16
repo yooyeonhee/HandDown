@@ -13,6 +13,7 @@ export const ContentImg = styled.img`
 `;
 export const AboutWrapper = styled.div`
   width: 80%;
+  max-width: 1200px;
   height: 600px;
   margin: 0px auto;
   display: flex;
