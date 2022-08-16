@@ -18,7 +18,7 @@ export default function Layout(props: ILayoutProps) {
   return (
     <>
       {!isHiddenHeader && <Header />}
-      <Body>{props.children}</Body>;
+      <Body>{props.children}</Body>
     </>
   );
 }

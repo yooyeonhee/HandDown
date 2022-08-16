@@ -5,7 +5,9 @@ import * as S from "./Main.styles";
 export default function MainUI() {
   return (
     <S.Body>
-      <Banner />
+      <S.ContentWrapper>
+        <S.ContentImg src="./main/main.png" />
+      </S.ContentWrapper>
       <S.AboutWrapper>
         <S.AboutTextWrapper>
           <S.LabelWrapper>

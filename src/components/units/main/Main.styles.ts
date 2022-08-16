@@ -3,6 +3,14 @@ import styled from "@emotion/styled";
 export const Body = styled.div`
   width: 100%;
 `;
+export const ContentWrapper = styled.div`
+  width: 100%;
+  height: 500px;
+`;
+export const ContentImg = styled.img`
+  width: 100%;
+  height: 500px;
+`;
 export const AboutWrapper = styled.div`
   width: 80%;
   height: 600px;
