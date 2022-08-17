@@ -1,14 +1,36 @@
 import styled from "@emotion/styled";
-
+import { MouseEvent } from "react";
+import { getDate } from "../../../../commons/libraries/utils";
+export interface ISeller {
+  name: string;
+}
+export interface IFiles {
+  url: string;
+}
+export interface IFetchUseditems {
+  _id: string;
+  name: string;
+  remarks: string;
+  contents: string;
+  price: number;
+  createdAt: Date;
+  pickedCount: number;
+  seller: ISeller;
+  images: Array<IFiles>;
+}
+export interface IListItemProps {
+  el: IFetchUseditems;
+  onClickToDetail: (event: MouseEvent<HTMLDivElement>) => void;
+}
 export const Body = styled.div`
   width: 100%;
   height: 250px;
-  padding: 50px 50px;
+  /* padding: 50px 50px; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
   margin-bottom: 50px;
 `;
 export const ItemImg = styled.div`
@@ -58,31 +80,31 @@ export const ItemCreatedAt = styled.div`
 `;
 
 export const ItemPrice = styled.div`
-  width: 10%;
+  width: 15%;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  font-size: 25px;
+  font-size: 22px;
   color: #444444;
   font-weight: 600;
 `;
-export default function ListItem() {
+export default function ListItem(props: IListItemProps) {
   return (
-    <Body>
+    <Body id={props.el._id} onClick={props.onClickToDetail}>
       <ItemImg />
       <ItemInfoWrapper>
-        <ItemTitle>아기 옷 팔아요</ItemTitle>
-        <ItemRemark>포장도 뜯지않았습니다.</ItemRemark>
+        <ItemTitle>{props.el.name}</ItemTitle>
+        <ItemRemark>{props.el?.remarks}</ItemRemark>
         <ItemUserInfoWrapper>
           <ItemUserIcon src="/list/icons/user.png" />
-          <ItemUserInfo>홍길동</ItemUserInfo>
+          <ItemUserInfo>{props.el.seller.name}</ItemUserInfo>
           <ItemUserIcon src="/list/icons/pick.png" />
-          <ItemUserInfo>20</ItemUserInfo>
+          <ItemUserInfo>{props.el.pickedCount}</ItemUserInfo>
         </ItemUserInfoWrapper>
-        <ItemCreatedAt>2021.02.22</ItemCreatedAt>
+        <ItemCreatedAt>{getDate(props.el.createdAt)}</ItemCreatedAt>
       </ItemInfoWrapper>
-      <ItemPrice>3,000원</ItemPrice>
+      <ItemPrice>{props.el.price.toLocaleString()}원</ItemPrice>
     </Body>
   );
 }

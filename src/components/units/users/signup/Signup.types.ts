@@ -11,7 +11,7 @@ export interface IData {
   passwordConfirm?: string;
 }
 
-export interface ISignupProps {
+export interface ILoginProps {
   register: UseFormRegister<IData>;
   handleSubmit: UseFormHandleSubmit<IData>;
   onClickSignUp: (data: IData) => Promise<void>;

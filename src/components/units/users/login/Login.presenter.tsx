@@ -12,9 +12,17 @@ export default function LoginUI(props: ILoginUIProps) {
           <S.Logo></S.Logo>
           <S.Title>로그인</S.Title>
           <DecoBox />
-          <S.InputForm>
-            <InfoInput label="이메일" type="string" />
-            <InfoInput label="비밀번호" type="password" />
+          <S.InputForm onSubmit={props.handleSubmit(props.onClickLogin)}>
+            <InfoInput
+              label="이메일"
+              type="string"
+              register={props.register("email")}
+            />
+            <InfoInput
+              label="비밀번호"
+              type="password"
+              register={props.register("password")}
+            />
             <InfoButton title="로그인" />
           </S.InputForm>
           <S.AlertWrapper>

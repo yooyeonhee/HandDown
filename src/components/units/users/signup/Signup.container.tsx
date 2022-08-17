@@ -52,8 +52,7 @@ export default function Signup() {
         },
       });
     } catch (error: any) {
-      console.log(error);
-      alert(error.message);
+      Modal.error({ content: error.message });
     }
   };
   return (

@@ -68,4 +68,9 @@ export const SearchInput = styled.input`
 `;
 export const ListWrapper = styled.div`
   width: 100%;
+  height: 800px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
