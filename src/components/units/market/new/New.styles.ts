@@ -117,6 +117,7 @@ export const PostCodeBtn = styled.button`
   background-color: white;
   color: #88d6ec;
   border-radius: 10px;
+  font-size: 12px;
   cursor: pointer;
 `;
 export const Input = styled.input`

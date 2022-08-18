@@ -6,7 +6,7 @@ import { FETCH_USER_LOGGED_IN, LOG_OUT_USER } from "./Header.queries";
 
 export default function Header() {
   const router = useRouter();
-  const HIDDEN_MENU = ["/", "/market", "/market/detail"];
+  const HIDDEN_MENU = ["/", "/market", `/market/${router.query.productId}`];
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const [logoutUser] = useMutation(LOG_OUT_USER);
