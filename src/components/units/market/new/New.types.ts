@@ -1,5 +1,10 @@
-import { MouseEvent } from "react";
-import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
+import { Dispatch, MouseEvent, SetStateAction } from "react";
+import {
+  FieldValue,
+  FieldValues,
+  UseFormHandleSubmit,
+  UseFormRegister,
+} from "react-hook-form";
 import { IUsedItemAddress } from "../detail/Detail.types";
 
 export interface IDaumPostcode {
@@ -16,19 +21,19 @@ export interface IFiles {
   url: string;
 }
 export interface ICreateUseditem {
-  name: string;
-  remarks: string;
-  contents: string;
-  price: number;
-  images: Array<IFiles>;
-  useditemAddress: IUseditemAddress;
+  name?: string;
+  remarks?: string;
+  contents?: string;
+  price?: number;
+  images?: Array<IFiles>;
+  useditemAddress?: IUseditemAddress;
 }
 export interface IData {
-  name: string;
-  remarks: string;
-  contents: string;
-  price: number;
-  addressDetail: string;
+  name?: string;
+  remarks?: string;
+  contents?: string;
+  price?: number;
+  addressDetail?: string;
 }
 export interface INewUIProps {
   onChangeFiles: (index: number, url: string) => void;
@@ -44,4 +49,9 @@ export interface INewUIProps {
   onClickSubmit: (data: IData) => Promise<void>;
   register: UseFormRegister<IData>;
   handleSubmit: UseFormHandleSubmit<IData>;
+  onChangeContents: (value: string) => void;
+  address: string;
+  setLng: Dispatch<SetStateAction<number>>;
+  setLat: Dispatch<SetStateAction<number>>;
+  postCode: string;
 }

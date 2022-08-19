@@ -64,11 +64,15 @@ export default function NewUI(props: INewUIProps) {
               <S.InputLabel>거래위치</S.InputLabel>
               <S.AddressWrapper>
                 <S.Map>
-                  <InputKakaoMap />
+                  <InputKakaoMap
+                    address={props.address}
+                    setLng={props.setLng}
+                    setLat={props.setLat}
+                  />
                 </S.Map>
                 <S.AddressInputWrapper>
                   <S.PostCode>
-                    000000{" "}
+                    {props.postCode}
                     <S.PostCodeBtn
                       type="button"
                       onClick={props.addressShowModal}
@@ -88,7 +92,7 @@ export default function NewUI(props: INewUIProps) {
                       </Modal>
                     )}
                   </S.PostCode>
-                  <S.Input readOnly placeholder="주소" />
+                  <S.Input readOnly placeholder="주소" value={props.address} />
                   <S.Input placeholder="상세주소를 입력해주세요." />
                 </S.AddressInputWrapper>
               </S.AddressWrapper>
@@ -97,7 +101,9 @@ export default function NewUI(props: INewUIProps) {
             <></>
           )}
           <S.ButtonWrapper>
-            <S.CancelBtn onClick={props.onClickCancel}>취소</S.CancelBtn>
+            <S.CancelBtn type="button" onClick={props.onClickCancel}>
+              취소
+            </S.CancelBtn>
             <S.SubmitBtn>등록</S.SubmitBtn>
           </S.ButtonWrapper>
         </S.FormWrapper>

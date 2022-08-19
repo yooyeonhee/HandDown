@@ -7,6 +7,7 @@ import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { IData, IDaumPostcode } from "./New.types";
+import { Modal } from "antd";
 
 const schema = yup.object({
   name: yup.string().required("필수 입력 사항입니다."),
@@ -21,6 +22,7 @@ export default function New() {
   const [checkTrade, setCheckTrade] = useState("meet");
   const [createUsedItem] = useMutation(CREATE_USED_ITEM);
   const [address, setAddress] = useState("");
+  const [postCode, setPostCode] = useState("000000");
   const [lat, setLat] = useState(3.0);
   const [lng, setLng] = useState(3.0);
   const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
@@ -60,6 +62,7 @@ export default function New() {
 
   const addressHandleComplete = (data: IDaumPostcode) => {
     setAddress(data.address);
+    setPostCode(data.zonecode);
     setIsAddressModalVisible(false);
   };
   const onClickCancel = () => {
@@ -84,10 +87,14 @@ export default function New() {
           },
         },
       });
-      router.push(`/market/${result.data.createUseditem._id}`);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
+      Modal.success({
+        content: "글 등록 성공",
+        onOk() {
+          router.push(`/market/${result.data.createUseditem._id}`);
+        },
+      });
+    } catch (error: any) {
+      Modal.error({ content: error.message });
     }
   };
 
@@ -107,6 +114,10 @@ export default function New() {
       handleSubmit={handleSubmit}
       register={register}
       onChangeContents={onChangeContents}
+      address={address}
+      setLng={setLng}
+      setLat={setLat}
+      postCode={postCode}
     />
   );
 }
