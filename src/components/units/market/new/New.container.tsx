@@ -66,7 +66,7 @@ export default function New() {
     setIsAddressModalVisible(false);
   };
   const onClickCancel = () => {
-    router.push("/users/mypage");
+    router.push("/");
   };
   const onClickSubmit = async (data: IData) => {
     try {

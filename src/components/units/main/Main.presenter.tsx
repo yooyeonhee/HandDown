@@ -2,7 +2,10 @@ import DecoBox from "../../commons/decoration/decobox";
 import BestItem from "../../commons/itembox/bestitem";
 import Banner from "../../commons/layout/banner/Banner.container";
 import * as S from "./Main.styles";
-export default function MainUI() {
+import { v4 as uuidv4 } from "uuid";
+import { IFetchUseditemsOfTheBest, IMainUIProps } from "./Main.types";
+export default function MainUI(props: IMainUIProps) {
+  console.log(props.bestItem);
   return (
     <S.Body>
       <S.ContentWrapper>
@@ -28,10 +31,11 @@ export default function MainUI() {
           <DecoBox />
         </S.LabelWrapper>
         <S.ItemsWrapper>
-          <BestItem />
-          <BestItem />
-          <BestItem />
-          <BestItem />
+          {props.bestItem?.fetchUseditemsOfTheBest.map(
+            (el: IFetchUseditemsOfTheBest) => (
+              <BestItem key={uuidv4()} el={el} />
+            )
+          )}
         </S.ItemsWrapper>
       </S.BestItemWrapper>
     </S.Body>

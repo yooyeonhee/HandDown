@@ -24,19 +24,26 @@ export default function NewUI(props: INewUIProps) {
           ))}
         </S.ImageItemWrapper>
         <S.FormWrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
-          <FormInput label="제품명*" placeholder="상품명을 입력해주세요." />
+          <FormInput
+            label="제품명*"
+            placeholder="상품명을 입력해주세요."
+            register={props.register("name")}
+          />
           <FormInput
             label="상품요약*"
             placeholder="상품에 대한 정보를 간략하게 작성해주세요."
+            register={props.register("remarks")}
           />
           <S.InputLabel>상품설명*</S.InputLabel>
           <S.InputQuill
-          // defaultValue={props.productData?.fetchUseditem.contents}
-          // onChange={props.onChangeContents}
+            onChange={props.onChangeContents}
+            // defaultValue={props.productData?.fetchUseditem.contents}
+            // onChange={props.onChangeContents}
           />
           <FormInput
             label="판매가격*"
             placeholder="상품 가격을 작성해주세요."
+            register={props.register("price")}
           />
           <LowLine />
           <S.ChooseWrapper>
@@ -93,7 +100,10 @@ export default function NewUI(props: INewUIProps) {
                     )}
                   </S.PostCode>
                   <S.Input readOnly placeholder="주소" value={props.address} />
-                  <S.Input placeholder="상세주소를 입력해주세요." />
+                  <S.Input
+                    placeholder="상세주소를 입력해주세요."
+                    {...props.register("addressDetail")}
+                  />
                 </S.AddressInputWrapper>
               </S.AddressWrapper>
             </>
@@ -104,7 +114,7 @@ export default function NewUI(props: INewUIProps) {
             <S.CancelBtn type="button" onClick={props.onClickCancel}>
               취소
             </S.CancelBtn>
-            <S.SubmitBtn>등록</S.SubmitBtn>
+            <S.SubmitBtn type="submit">등록</S.SubmitBtn>
           </S.ButtonWrapper>
         </S.FormWrapper>
       </S.Wrapper>

@@ -52,7 +52,9 @@ export default function DetailUI(props: IDetailUIProps) {
       )}
 
       <S.Map>
-        <OutputKakaoMap />
+        <OutputKakaoMap
+          address={props.itemData?.fetchUseditem.useditemAddress?.address}
+        />
       </S.Map>
       <RowLine />
       <S.Title>상품문의</S.Title>

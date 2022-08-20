@@ -23,7 +23,7 @@ export const Navbar = styled.div`
   flex-direction: row;
   align-items: center;
   position: absolute;
-  right: 20%;
+  right: 10%;
   top: 60px;
 `;
 export const NavItem = styled.span`
