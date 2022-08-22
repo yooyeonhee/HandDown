@@ -3,22 +3,22 @@ import Slider from "react-slick";
 
 export const Body = styled.div`
   width: 100%;
-  height: 350px;
+  height: 25vw;
 `;
 export const BannerWrapper = styled.div`
   width: 100%;
-  height: 350px;
+  height: 25vw;
 `;
 export const Img = styled.img`
   width: 100%;
-  height: 350px;
+  height: 25vw;
 `;
 export const StyledSlider = styled(Slider)`
   width: 100%;
-  height: 400px;
+  height: 25vw;
 
   .slick-slide div {
-    height: 400px;
+    height: 25vw;
     width: 100%;
   }
 

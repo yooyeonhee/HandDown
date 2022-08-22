@@ -18,6 +18,13 @@ export const Logo = styled.div`
   color: #444444;
   font-family: Level;
 `;
+export const BurgerMenu = styled.img`
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 10%;
+  top: 60px;
+`;
 export const Navbar = styled.div`
   display: flex;
   flex-direction: row;
@@ -25,6 +32,12 @@ export const Navbar = styled.div`
   position: absolute;
   right: 10%;
   top: 60px;
+  @media (max-width: 1000px) {
+    display: none;
+  }
+  @media (max-width: 576px) {
+    display: none;
+  }
 `;
 export const NavItem = styled.span`
   font-size: 18px;

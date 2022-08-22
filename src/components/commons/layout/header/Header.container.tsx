@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import HeaderUI from "./Header.presenter";
 import { FETCH_USER_LOGGED_IN, LOG_OUT_USER } from "./Header.queries";
 
@@ -8,6 +9,7 @@ export default function Header() {
   const router = useRouter();
   const HIDDEN_MENU = ["/", "/market", `/market/${router.query.productId}`];
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
+  const [isOpenMenu, setIsOpenMenu] = useState(false); // 메뉴의 초기값을 false로 설정
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
   const [logoutUser] = useMutation(LOG_OUT_USER);
   const onClickToLogin = () => {
@@ -30,6 +32,9 @@ export default function Header() {
       Modal.error({ content: error.message });
     }
   };
+  const onClickMenu = () => {
+    setIsOpenMenu((isOpen) => !isOpen);
+  };
   return (
     <HeaderUI
       isHiddenMenu={isHiddenMenu}
@@ -38,7 +43,10 @@ export default function Header() {
       onClickToMarket={onClickToMarket}
       onClickToMypage={onClickToMypage}
       onClickLogout={onClickLogout}
+      onClickMenu={onClickMenu}
       data={data}
+      isOpenMenu={isOpenMenu}
+      setIsOpenMenu={setIsOpenMenu}
     />
   );
 }

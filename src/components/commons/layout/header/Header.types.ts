@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IFetchUserLoggedIn {
   name: string;
 }
@@ -11,4 +13,7 @@ export interface IHeaderUIProps {
   data: {
     fetchUserLoggedIn: IFetchUserLoggedIn;
   };
+  onClickMenu: () => void;
+  isOpenMenu: boolean;
+  setIsOpenMenu: Dispatch<SetStateAction<boolean>>;
 }
