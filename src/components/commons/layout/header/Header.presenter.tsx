@@ -7,7 +7,7 @@ export default function HeaderUI(props: IHeaderUIProps) {
       {props.isOpenMenu && <ToggleMenu setIsOpenMenu={props.setIsOpenMenu} />}
       <S.Body>
         <S.HeaderWrapper>
-          <S.Logo>HandDown</S.Logo>
+          <S.Logo src="/logo/logo.png" onClick={props.onClickToMain} />
           <S.BurgerMenu
             src="/header/burger-bar.png"
             onClick={props.onClickMenu}

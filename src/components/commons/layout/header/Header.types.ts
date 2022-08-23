@@ -9,6 +9,7 @@ export interface IHeaderUIProps {
   onClickToSignup: () => void;
   onClickToMarket: () => void;
   onClickToMypage: () => void;
+  onClickToMain: () => void;
   onClickLogout: () => Promise<void>;
   data: {
     fetchUserLoggedIn: IFetchUserLoggedIn;

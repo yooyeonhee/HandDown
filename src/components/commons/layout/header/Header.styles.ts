@@ -13,17 +13,16 @@ export const HeaderWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
-export const Logo = styled.div`
-  font-size: 45px;
-  color: #444444;
-  font-family: Level;
+export const Logo = styled.img`
+  width: 25%;
+  min-width: 250px;
 `;
 export const BurgerMenu = styled.img`
   width: 30px;
   height: 30px;
   position: absolute;
   right: 10%;
-  top: 60px;
+  top: 50px;
 `;
 export const Navbar = styled.div`
   display: flex;
@@ -31,7 +30,7 @@ export const Navbar = styled.div`
   align-items: center;
   position: absolute;
   right: 10%;
-  top: 60px;
+  top: 50px;
   @media (max-width: 1000px) {
     display: none;
   }
@@ -64,4 +63,7 @@ export const MenuWrapper = styled.div`
   height: 60px;
   border-top: 2px solid #e8edee;
   border-bottom: 2px solid #e8edee;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

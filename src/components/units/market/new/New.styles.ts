@@ -12,12 +12,20 @@ export const Wrapper = styled.div`
   padding: 50px 30px;
   display: flex;
   flex-direction: column;
+  @media (max-width: 768px) {
+    padding: 0px;
+  }
 `;
 export const Title = styled.div`
   font-size: 35px;
   color: #444444;
   font-weight: 600;
   margin-bottom: 50px;
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+  }
 `;
 
 export const ImageItemWrapper = styled.div`
@@ -28,7 +36,12 @@ export const ImageItemWrapper = styled.div`
   overflow: auto;
   white-space: nowrap;
   margin-bottom: 50px;
+  overflow: scroll;
   cursor: pointer;
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+    overflow: scroll;
+  }
 `;
 export const ImageItem = styled.div`
   min-width: 80px;
@@ -53,11 +66,19 @@ export const InputLabel = styled.div`
   color: #444444;
   width: 100%;
   margin-bottom: 30px;
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 export const InputQuill = styled(ReactQuill)`
   width: 100%;
   height: 300px;
   margin-bottom: 70px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    height: 200px;
+    margin-bottom: 100px;
+  }
 `;
 export const ChooseWrapper = styled.div`
   width: 100%;
@@ -67,7 +88,7 @@ export const ChooseWrapper = styled.div`
   margin-bottom: 20px;
 `;
 export const ChooseDiv = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -76,23 +97,38 @@ export const ChooseDiv = styled.div`
 `;
 
 export const ChooseOption = styled.input`
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
 `;
 export const ChooseLabel = styled.span`
   font-size: 18px;
   margin-right: 50px;
   margin-left: 10px;
+  @media (max-width: 768px) {
+    font-size: 12px;
+    margin-right: 15px;
+    margin-left: 5px;
+  }
 `;
 export const AddressWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-bottom: 50px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 export const Map = styled.div`
-  min-width: 450px;
+  width: 60%;
   height: 300px;
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
 `;
+
 export const AddressInputWrapper = styled.div`
   width: 60%;
   display: flex;
@@ -100,6 +136,11 @@ export const AddressInputWrapper = styled.div`
   align-items: flex-start;
   justify-content: center;
   margin-left: 50px;
+  @media (max-width: 768px) {
+    width: 100%;
+    margin-bottom: 10px;
+    margin: 0px;
+  }
 `;
 export const PostCode = styled.span`
   color: #b3b3b3;
@@ -108,12 +149,16 @@ export const PostCode = styled.span`
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
+  @media (max-width: 768px) {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
 `;
 export const PostCodeBtn = styled.button`
   width: 90px;
   height: 35px;
   margin-left: 30px;
-  border: 3px solid #88d6ec;
+  border: 2px solid #88d6ec;
   background-color: white;
   color: #88d6ec;
   border-radius: 10px;
@@ -135,6 +180,10 @@ export const Input = styled.input`
   ::placeholder {
     color: #b3b3b3;
   }
+  @media (max-width: 768px) {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
 `;
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -151,6 +200,11 @@ export const CancelBtn = styled.button`
   border: none;
   font-size: 20px;
   margin-right: 30px;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+  }
 `;
 export const SubmitBtn = styled.button`
   width: 150px;
@@ -160,4 +214,9 @@ export const SubmitBtn = styled.button`
   color: white;
   border: none;
   font-size: 20px;
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 40px;
+    font-size: 12px;
+  }
 `;

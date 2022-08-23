@@ -24,6 +24,9 @@ export default function Header() {
   const onClickToMypage = () => {
     router.push("/mypage");
   };
+  const onClickToMain = () => {
+    router.push("/");
+  };
   const onClickLogout = async () => {
     try {
       await logoutUser();
@@ -47,6 +50,7 @@ export default function Header() {
       data={data}
       isOpenMenu={isOpenMenu}
       setIsOpenMenu={setIsOpenMenu}
+      onClickToMain={onClickToMain}
     />
   );
 }

@@ -17,15 +17,23 @@ const Wrapper = styled.div`
   flex-direction: row;
   align-items: center;
   margin-bottom: 50px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
 `;
 const InputLabel = styled.div`
-  width: 20%;
+  width: 30%;
   font-size: 25px;
   color: #444444;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
   /* margin-right: 100px; */
 `;
 const Input = styled.input`
-  width: 80%;
+  width: 100%;
   display: block;
   height: 50px;
   border: none;
@@ -37,6 +45,12 @@ const Input = styled.input`
   }
   ::placeholder {
     color: #b3b3b3;
+  }
+  @media (max-width: 768px) {
+    font-size: 12px;
+    ::placeholder {
+      font-size: 12px;
+    }
   }
 `;
 

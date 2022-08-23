@@ -45,7 +45,6 @@ export default function NewUI(props: INewUIProps) {
             placeholder="상품 가격을 작성해주세요."
             register={props.register("price")}
           />
-          <LowLine />
           <S.ChooseWrapper>
             <S.InputLabel style={{ width: "20vw" }}>거래방법*</S.InputLabel>
             <S.ChooseDiv>
