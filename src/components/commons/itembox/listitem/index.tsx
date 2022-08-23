@@ -24,55 +24,89 @@ export interface IListItemProps {
 }
 export const Body = styled.div`
   width: 100%;
-  height: 250px;
-  /* padding: 50px 50px; */
+  height: 25%;
+  min-height: 180px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   /* border: 1px solid #bdbdbd; */
   margin-bottom: 50px;
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
 `;
 export const ItemImg = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 20vw;
+  min-width: 150px;
+  height: 20vw;
+  min-height: 150px;
   background-color: aliceblue;
   border-radius: 20px;
+  margin-right: 20px;
+  @media (max-width: 576px) {
+    width: 200px;
+    height: 200px;
+  }
 `;
 export const ItemInfoWrapper = styled.div`
-  width: 60%;
+  width: 45%;
   height: 200px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  @media (max-width: 576px) {
+    width: 100%;
+    height: 150px;
+    margin: 0px;
+    padding: 20px;
+  }
 `;
 export const ItemTitle = styled.div`
   font-size: 25px;
   font-weight: 500;
   margin-bottom: 10px;
   color: #444444;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
 export const ItemRemark = styled.div`
   font-size: 18px;
   color: #444444;
   margin-bottom: 10px;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const ItemUserInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 export const ItemUserIcon = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 10px;
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 export const ItemUserInfo = styled.div`
   font-size: 18px;
   margin-right: 15px;
   color: #444444;
+  @media (max-width: 768px) {
+    font-size: 15px;
+  }
 `;
 export const ItemCreatedAt = styled.div`
   font-size: 15px;
@@ -80,7 +114,7 @@ export const ItemCreatedAt = styled.div`
 `;
 
 export const ItemPrice = styled.div`
-  width: 15%;
+  width: 25%;
   height: 200px;
   display: flex;
   align-items: center;
@@ -88,6 +122,17 @@ export const ItemPrice = styled.div`
   font-size: 22px;
   color: #444444;
   font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+  @media (max-width: 576px) {
+    height: auto;
+    min-width: 200px;
+    position: absolute;
+    bottom: 25px;
+    right: 10px;
+    font-size: 16px;
+  }
 `;
 export default function ListItem(props: IListItemProps) {
   return (

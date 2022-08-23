@@ -10,12 +10,17 @@ export const Body = styled.div`
 `;
 export const SearchBarWrapper = styled.div`
   width: 100%;
-  height: 70px;
+  height: 80px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 100px;
+  align-items: center;
+  margin-top: 80px;
   margin-bottom: 30px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 30px;
+  }
 `;
 export const LabelWrapper = styled.div`
   display: flex;
@@ -30,6 +35,9 @@ export const Label = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 export const MoreIcon = styled.img`
   width: 20px;
@@ -37,8 +45,10 @@ export const MoreIcon = styled.img`
   margin-left: 10px;
 `;
 export const SearchBar = styled.div`
-  width: 400px;
-  height: 50px;
+  width: 40%;
+  min-width: 300px;
+  min-height: 40px;
+  height: 30%;
   background-color: #ffffff;
   border-radius: 30px;
   display: flex;
@@ -47,6 +57,10 @@ export const SearchBar = styled.div`
   align-items: center;
   padding: 10px 20px;
   border: 2px solid #88d6ec;
+  @media (max-width: 768px) {
+    width: 250px;
+    height: 30px;
+  }
 `;
 export const SearchIcon = styled.img`
   width: 30px;

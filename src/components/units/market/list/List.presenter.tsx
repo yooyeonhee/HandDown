@@ -18,7 +18,7 @@ export default function ListUI(props: IListUIProps) {
           <S.SearchIcon src="/list/icons/search.png" />
           <S.SearchInput
             type="text"
-            placeholder="검색어를 입력해주세요.."
+            placeholder="검색어를 입력해주세요."
             onChange={props.onChangeSearch}
           />
         </S.SearchBar>
