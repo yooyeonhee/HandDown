@@ -10,12 +10,15 @@ export default function DetailUI(props: IDetailUIProps) {
       <RowLine />
       <S.Title>상품상세</S.Title>
       <S.ItemInfoWrapper>
-        <S.SubImgWrapper>
-          <S.SubImg />
-          <S.SubImg />
-          <S.SubImg />
-        </S.SubImgWrapper>
-        <S.Img />
+        <S.ItemImgWrapper>
+          <S.SubImgWrapper>
+            <S.SubImg />
+            <S.SubImg />
+            <S.SubImg />
+            <S.SubImg />
+          </S.SubImgWrapper>
+          <S.Img />
+        </S.ItemImgWrapper>
         <S.InfoWrapper>
           <S.TitleWrapper>
             <S.ItemTitle>{props.itemData?.fetchUseditem.name}</S.ItemTitle>

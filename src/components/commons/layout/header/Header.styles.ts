@@ -12,6 +12,9 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
 export const Logo = styled.img`
   width: 25%;

@@ -30,7 +30,7 @@ export const Body = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  /* border: 1px solid #bdbdbd; */
+  cursor: pointer;
   margin-bottom: 50px;
   @media (max-width: 768px) {
     margin-bottom: 20px;

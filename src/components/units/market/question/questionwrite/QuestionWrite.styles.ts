@@ -5,7 +5,7 @@ export const Body = styled.div`
   height: 100%;
 `;
 export const QuestionInputWrapper = styled.div`
-  width: 1200px;
+  width: 100%;
   margin: 50px auto;
   height: auto;
   display: flex;
@@ -51,6 +51,12 @@ export const QuestionWriteText = styled.textarea`
   &::placeholder {
     color: #bdbdbd;
   }
+  @media (max-width: 768px) {
+    padding: 5px;
+    &::placeholder {
+      font-size: 8px;
+    }
+  }
 `;
 export const QuestionWriteSubmit = styled.div`
   width: 100%;
@@ -63,6 +69,9 @@ export const QuestionWriteSubmit = styled.div`
 export const QuestionWriteTextCount = styled.span`
   margin-left: 20px;
   color: #bdbdbd;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 export const QuestionWriteSubmitButton = styled.button`
   height: 50px;
@@ -74,4 +83,9 @@ export const QuestionWriteSubmitButton = styled.button`
   line-height: 24px;
   color: white;
   border: none;
+  @media (max-width: 768px) {
+    height: 30px;
+    width: 70px;
+    font-size: 12px;
+  }
 `;
