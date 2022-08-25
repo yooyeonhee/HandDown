@@ -15,7 +15,7 @@ export default function HeaderUI(props: IHeaderUIProps) {
           {props.data ? (
             <S.Navbar>
               <S.NavItem onClick={props.onClickToMypage}>
-                {props.data?.fetchUserLoggedIn.name}님 마이페이지
+                {props.data?.fetchUserLoggedIn.name}님
               </S.NavItem>
               <S.NavItem onClick={props.onClickLogout}>로그아웃</S.NavItem>
               <S.NavShop onClick={props.onClickToMarket}>shop</S.NavShop>

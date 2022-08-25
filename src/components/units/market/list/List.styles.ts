@@ -47,8 +47,7 @@ export const MoreIcon = styled.img`
 export const SearchBar = styled.div`
   width: 40%;
   min-width: 300px;
-  min-height: 40px;
-  height: 30%;
+  min-height: 50px;
   background-color: #ffffff;
   border-radius: 30px;
   display: flex;

@@ -42,16 +42,17 @@ export const SubImgWrapper = styled.div`
   justify-content: flex-start;
   margin-right: 30px;
   @media (max-width: 768px) {
-    margin-right: 10px;
+    margin-right: 5px;
   }
 `;
-export const SubImg = styled.div`
+export const SubImg = styled.img`
   width: 70px;
   height: 70px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: beige;
   margin-bottom: 10px;
+  cursor: pointer;
   @media (max-width: 768px) {
     margin: 5px;
     width: 45px;
@@ -59,10 +60,10 @@ export const SubImg = styled.div`
     border-radius: 5px;
   }
 `;
-export const Img = styled.div`
-  width: 25vw;
+export const Img = styled.img`
+  width: 20vw;
   min-width: 300px;
-  height: 25vw;
+  height: 20vw;
   min-height: 300px;
   border-radius: 20px;
   background-color: wheat;
@@ -84,7 +85,6 @@ export const InfoWrapper = styled.div`
   }
 `;
 export const TitleWrapper = styled.div`
-  font-size: 35px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -95,14 +95,19 @@ export const TitleWrapper = styled.div`
   }
 `;
 export const ItemTitle = styled.div`
-  font-size: 35px;
+  font-size: 30px;
   font-weight: 700;
   color: #444444;
+  @media (max-width: 900px) {
+    font-size: 25px;
+  }
   @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
 export const ItemIsSold = styled.div`
+  min-width: 50px;
+  text-align: center;
   font-size: 14px;
   font-weight: 400;
   margin-left: 20px;
@@ -136,6 +141,9 @@ export const ItemPrice = styled.div`
   color: #444444;
   font-weight: 600;
   margin: 30px 0px;
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
   @media (max-width: 768px) {
     margin: 20px 0px;
     width: 100%;
@@ -151,8 +159,8 @@ export const ButtonWrapper = styled.div`
   }
 `;
 export const PickBtn = styled.button`
-  width: 160px;
-  height: 60px;
+  width: 140px;
+  height: 55px;
   border-radius: 10px;
   border: 3px solid #88d6ec;
   color: #88d6ec;
@@ -163,15 +171,15 @@ export const PickBtn = styled.button`
   justify-content: center;
   background-color: #ffffff;
   margin-right: 30px;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     width: 120px;
     height: 45px;
     font-size: 12px;
   }
 `;
 export const BuyBtn = styled.button`
-  width: 160px;
-  height: 60px;
+  width: 140px;
+  height: 55px;
   border-radius: 10px;
   border: none;
   color: #ffffff;
@@ -181,7 +189,7 @@ export const BuyBtn = styled.button`
   align-items: center;
   justify-content: center;
   background-color: #88d6ec;
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     width: 120px;
     height: 45px;
     font-size: 12px;

@@ -3,8 +3,10 @@ import OutputKakaoMap from "../../../commons/maps/outputmaps";
 import QuestionWrite from "../question/questionwrite/QuestionWrite.container";
 import * as S from "./Detail.styles";
 import Dompurify from "dompurify";
+import { v4 as uuidv4 } from "uuid";
 import { IDetailUIProps } from "./Detail.types";
 export default function DetailUI(props: IDetailUIProps) {
+  console.log(props.mainImg);
   return (
     <S.Body>
       <RowLine />
@@ -12,27 +14,44 @@ export default function DetailUI(props: IDetailUIProps) {
       <S.ItemInfoWrapper>
         <S.ItemImgWrapper>
           <S.SubImgWrapper>
-            <S.SubImg />
-            <S.SubImg />
-            <S.SubImg />
-            <S.SubImg />
+            {props.itemData?.fetchUseditem?.images.map(
+              (el) =>
+                el !== "" && (
+                  <S.SubImg
+                    key={uuidv4()}
+                    id={el}
+                    src={`https://storage.googleapis.com/${el}`}
+                    onClick={props.onClickSubImage}
+                  />
+                )
+            )}
           </S.SubImgWrapper>
-          <S.Img />
+          {props.itemData?.fetchUseditem.images[0] === "" ||
+          props.itemData?.fetchUseditem.images.length === 0 ? (
+            <S.Img src={"/list/noimg.png"} />
+          ) : (
+            <S.Img src={`https://storage.googleapis.com/${props.mainImg}`} />
+          )}
         </S.ItemImgWrapper>
         <S.InfoWrapper>
           <S.TitleWrapper>
             <S.ItemTitle>{props.itemData?.fetchUseditem.name}</S.ItemTitle>
-            <S.ItemIsSold>판매중</S.ItemIsSold>
+            {/* <S.ItemIsSold>판매중</S.ItemIsSold> */}
           </S.TitleWrapper>
 
           <S.ItemRemark>{props.itemData?.fetchUseditem.remarks}</S.ItemRemark>
           <S.ItemArea>
-            거래지역 : {props.itemData?.fetchUseditem.useditemAddress?.address}
+            {props.itemData?.fetchUseditem.useditemAddress.address
+              ? `거래지역 : ${props.itemData.fetchUseditem.useditemAddress.address}`
+              : "택배거래"}
           </S.ItemArea>
-          <S.ItemPrice>{props.itemData?.fetchUseditem.price}원</S.ItemPrice>
+          <S.ItemPrice>
+            {props.itemData?.fetchUseditem.price.toLocaleString()}원
+          </S.ItemPrice>
           <S.ButtonWrapper>
             <S.PickBtn>
-              찜하기
+              찜하기{" "}
+              {props.itemData && props.itemData?.fetchUseditem.pickedCount}
               <S.PickIcon src="/detail/icons/pick.png" />
             </S.PickBtn>
             <S.BuyBtn>구매하기</S.BuyBtn>
@@ -54,11 +73,13 @@ export default function DetailUI(props: IDetailUIProps) {
         <S.ItemContent />
       )}
 
-      <S.Map>
-        <OutputKakaoMap
-          address={props.itemData?.fetchUseditem.useditemAddress?.address}
-        />
-      </S.Map>
+      {props.itemData?.fetchUseditem.useditemAddress.address && (
+        <S.Map>
+          <OutputKakaoMap
+            address={props.itemData?.fetchUseditem.useditemAddress?.address}
+          />
+        </S.Map>
+      )}
       <RowLine />
       <S.Title>상품문의</S.Title>
       <QuestionWrite />

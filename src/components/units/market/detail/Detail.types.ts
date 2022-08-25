@@ -1,3 +1,5 @@
+import { MouseEvent } from "react";
+
 export interface IUsedItemAddress {
   address: string;
   addressDetail: string;
@@ -8,16 +10,14 @@ export interface ISeller {
   name: string;
   email: String;
 }
-export interface IFiles {
-  url: string;
-}
+
 export interface IFetchUsedItem {
-  _id: string;
+  _id?: string;
   name: string;
   remarks: string;
   contents: string;
   price: number;
-  images: Array<IFiles>;
+  images: Array<string>;
   pickedCount: number;
   createdAt: Date;
   useditemAddress: IUsedItemAddress;
@@ -25,7 +25,7 @@ export interface IFetchUsedItem {
 }
 export interface IFetchUserLoggedIn {
   name: string;
-  _id: string;
+  _id?: string;
   email: string;
 }
 export interface IDetailUIProps {
@@ -35,4 +35,7 @@ export interface IDetailUIProps {
   userData: {
     fetchUserLoggedIn: IFetchUserLoggedIn;
   };
+  onClickPick: () => void;
+  mainImg: string;
+  onClickSubImage: (event: MouseEvent<HTMLImageElement>) => void;
 }

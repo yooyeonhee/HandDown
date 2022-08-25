@@ -4,9 +4,6 @@ import { getDate } from "../../../../commons/libraries/utils";
 export interface ISeller {
   name: string;
 }
-export interface IFiles {
-  url: string;
-}
 export interface IFetchUseditems {
   _id: string;
   name: string;
@@ -16,7 +13,7 @@ export interface IFetchUseditems {
   createdAt: Date;
   pickedCount: number;
   seller: ISeller;
-  images: Array<IFiles>;
+  images: Array<string>;
 }
 export interface IListItemProps {
   el: IFetchUseditems;
@@ -41,10 +38,10 @@ export const Body = styled.div`
     position: relative;
   }
 `;
-export const ItemImg = styled.div`
-  width: 20vw;
+export const ItemImg = styled.img`
+  width: 16vw;
   min-width: 150px;
-  height: 20vw;
+  height: 16vw;
   min-height: 150px;
   background-color: aliceblue;
   border-radius: 20px;
@@ -137,7 +134,12 @@ export const ItemPrice = styled.div`
 export default function ListItem(props: IListItemProps) {
   return (
     <Body id={props.el._id} onClick={props.onClickToDetail}>
-      <ItemImg />
+      {props.el.images.length === 0 || props.el.images[0] === "" ? (
+        <ItemImg src={"/list/noimg.png"} />
+      ) : (
+        <ItemImg src={`https://storage.googleapis.com/${props.el.images[0]}`} />
+      )}
+      {/* <ItemImg src={`https://storage.googleapis.com/${props.el.images[0]}`} /> */}
       <ItemInfoWrapper>
         <ItemTitle>{props.el.name}</ItemTitle>
         <ItemRemark>{props.el?.remarks}</ItemRemark>

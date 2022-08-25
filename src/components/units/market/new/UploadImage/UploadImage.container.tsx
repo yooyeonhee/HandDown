@@ -1,6 +1,6 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
-import { ChangeEvent, useRef } from "react";
+import { ChangeEvent, useEffect, useRef, useState } from "react";
 import UploadsImageUI from "./UploadImage.presenter";
 import { UPLOAD_FILE } from "./UploadImage.query";
 import { IUploadsImageProps } from "./UploadImage.types";
@@ -9,7 +9,13 @@ export default function UploadImage(props: IUploadsImageProps) {
   const fileRef = useRef<HTMLInputElement>(null);
 
   const [uploadFile] = useMutation(UPLOAD_FILE);
+  const [showImgSelect, setShowImgSelect] = useState(true);
 
+  useEffect(() => {
+    if (props.index === 4) {
+      setShowImgSelect(false);
+    }
+  }, [props.index]);
   function onClickUpload() {
     fileRef.current?.click();
   }
@@ -36,6 +42,7 @@ export default function UploadImage(props: IUploadsImageProps) {
       fileUrl={props.fileUrls[props.index]}
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
+      showImgSelect={showImgSelect}
     />
   );
 }

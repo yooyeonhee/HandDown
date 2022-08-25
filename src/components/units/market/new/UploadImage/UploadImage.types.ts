@@ -5,6 +5,7 @@ export interface IUploadsImageUIProps {
   fileUrl: string;
   onClickUpload: () => void;
   onChangeFile: (event: ChangeEvent<HTMLInputElement>) => void;
+  showImgSelect: boolean;
 }
 
 export interface IUploadsImageProps {
