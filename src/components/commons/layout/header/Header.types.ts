@@ -17,4 +17,5 @@ export interface IHeaderUIProps {
   onClickMenu: () => void;
   isOpenMenu: boolean;
   setIsOpenMenu: Dispatch<SetStateAction<boolean>>;
+  onClickToNew: () => void;
 }

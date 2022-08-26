@@ -18,9 +18,8 @@ export default function MainUI(props: IMainUIProps) {
             <DecoBox />
           </S.LabelWrapper>
           <S.Text>
-            HandDown is an online market where you can trade used children's
-            items <br /> such as clothes, shoes, strollers, and toys that you do
-            not use.
+            HandDown은 사용하지 않는 옷, 신발, 유모차, 장난감 등 <br /> 중고
+            아동용품을 거래할 수 있는 온라인 마켓입니다.
           </S.Text>
         </S.AboutTextWrapper>
         <S.AboutImg src="/main/about.png" />

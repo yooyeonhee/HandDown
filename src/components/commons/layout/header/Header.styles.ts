@@ -62,11 +62,30 @@ export const NavShop = styled.div`
 `;
 export const MenuWrapper = styled.div`
   width: 80%;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   height: 60px;
   border-top: 2px solid #e8edee;
   border-bottom: 2px solid #e8edee;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   @media (max-width: 768px) {
     display: none;
   }
+`;
+export const Menu = styled.div`
+  margin-right: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+`;
+export const MenuIcon = styled.img`
+  margin-right: 10px;
+  height: 20px;
+`;
+export const MenuTitle = styled.div`
+  font-size: 18px;
+  color: #828282;
+  font-weight: 600;
 `;

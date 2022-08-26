@@ -4,7 +4,6 @@ const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 export const Body = styled.div`
   width: 80%;
-  max-width: 1200px;
   margin: 0px auto;
 `;
 export const Wrapper = styled.div`

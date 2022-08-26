@@ -22,10 +22,13 @@ export default function Header() {
     router.push("/market");
   };
   const onClickToMypage = () => {
-    router.push("/mypage");
+    router.push("/users/mypage");
   };
   const onClickToMain = () => {
     router.push("/");
+  };
+  const onClickToNew = () => {
+    router.push("/market/new");
   };
   const onClickLogout = async () => {
     try {
@@ -51,6 +54,7 @@ export default function Header() {
       isOpenMenu={isOpenMenu}
       setIsOpenMenu={setIsOpenMenu}
       onClickToMain={onClickToMain}
+      onClickToNew={onClickToNew}
     />
   );
 }
