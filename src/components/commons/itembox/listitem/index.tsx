@@ -1,3 +1,4 @@
+/* 가로 100%의 박스형 리스트 컴포넌트 */
 import styled from "@emotion/styled";
 import { MouseEvent } from "react";
 import { getDate } from "../../../../commons/libraries/utils";

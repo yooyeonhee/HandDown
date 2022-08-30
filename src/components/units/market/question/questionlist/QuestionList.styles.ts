@@ -1,13 +1,29 @@
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
   width: 100%;
+  height: 500px;
+  overflow: auto;
 `;
-export const Wrapper = styled.div`
+export const CommentItems = styled.div`
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #bdbdbd;
+`;
+export const CommentShow = styled.div`
+  margin: 50px auto;
+  width: 1400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+`;
+export const AnswerWrapper = styled.div`
   width: 100%;
   height: 100%;
+  border-bottom: 1px solid #bdbdbd;
 `;
-export const QuestionWrapper = styled.div`
+export const CommentShowWrapper = styled.div`
   width: 100%;
   height: 150px;
   display: flex;
@@ -15,29 +31,30 @@ export const QuestionWrapper = styled.div`
   align-items: center;
   padding-bottom: 20px;
 `;
-export const ProfileImg = styled.div`
+export const CommentProfileImg = styled.div`
   width: 45px;
   height: 45px;
   margin-right: 15px;
+  /* border-radius: 50%; */
 `;
-export const Img = styled.img`
+export const PersonalImg = styled.img`
   width: 45px;
   height: 45px;
 `;
-export const QuestionInfo = styled.div`
+export const CommentShowInfo = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   margin: 20px 0px 0px 0px;
 `;
-export const QuestionNameFunc = styled.div`
+export const CommentShowLine1 = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 `;
-export const QuestionName = styled.span`
+export const CommentShowName = styled.span`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -46,7 +63,7 @@ export const QuestionName = styled.span`
   flex-direction: row;
   align-items: center;
 `;
-export const FuncOption = styled.div`
+export const CommentShowOption = styled.div`
   height: 100%;
   width: auto;
   display: flex;
@@ -54,10 +71,10 @@ export const FuncOption = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const EditIcon = styled.img`
+export const ModifyIcon = styled.img`
   width: 20px;
   height: 20px;
-  margin-right: 20px;
+  margin-right: 10px;
 `;
 export const DeleteModalWrapper = styled.div`
   display: flex;
@@ -73,14 +90,14 @@ export const DeleteModal = styled.div`
   font-weight: 400;
   margin-left: 20px;
 `;
-// export const DeleteModalIcon = styled(ExclamationCircleOutlined)`
-//   font-size: 20px;
-// `;
+export const DeleteModalIcon = styled(ExclamationCircleOutlined)`
+  font-size: 20px;
+`;
 export const AnswerIcon = styled.img`
   width: 20x;
   height: 20px;
 `;
-export const QuestionContent = styled.pre`
+export const CommentShowLine2 = styled.pre`
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -88,7 +105,7 @@ export const QuestionContent = styled.pre`
   color: #4f4f4f;
   margin: 5px 0px 20px 0px;
 `;
-export const QuestionDate = styled.span`
+export const CommentShowLine3 = styled.span`
   font-style: normal;
   font-weight: 400;
   font-size: 12px;

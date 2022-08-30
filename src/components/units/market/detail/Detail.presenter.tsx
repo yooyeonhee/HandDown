@@ -5,6 +5,7 @@ import * as S from "./Detail.styles";
 import Dompurify from "dompurify";
 import { v4 as uuidv4 } from "uuid";
 import { IDetailUIProps } from "./Detail.types";
+import QuestionList from "../question/questionlist/QuestionList.container";
 export default function DetailUI(props: IDetailUIProps) {
   console.log(props.mainImg);
   return (
@@ -81,8 +82,10 @@ export default function DetailUI(props: IDetailUIProps) {
         </S.Map>
       )}
       <RowLine />
-      <S.Title>상품문의</S.Title>
+      <S.Title>Q & A</S.Title>
+
       <QuestionWrite />
+      <QuestionList />
     </S.Body>
   );
 }

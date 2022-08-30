@@ -1,3 +1,4 @@
+/* 가로 100% 길이의 구분선  */
 import styled from "@emotion/styled";
 
 const Line = styled.div`

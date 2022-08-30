@@ -1,5 +1,6 @@
+/* 게시글 등록에 사용되는 input 공통 컴포넌트 */
 import styled from "@emotion/styled";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent } from "react";
 
 interface IFormInputProps {
   label?: string;

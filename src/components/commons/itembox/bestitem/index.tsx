@@ -1,3 +1,4 @@
+/* 그리드 박스형 리스트 컴포넌트 */
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import { MouseEvent } from "react";

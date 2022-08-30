@@ -1,3 +1,4 @@
+/* 로그인, 회원가입 등 회원 정보 입력 폼에서 사용되는 input 공통 컴포넌트 */
 import styled from "@emotion/styled";
 import { ChangeEvent } from "react";
 
