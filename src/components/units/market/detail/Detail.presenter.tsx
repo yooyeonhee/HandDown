@@ -50,12 +50,14 @@ export default function DetailUI(props: IDetailUIProps) {
             {props.itemData?.fetchUseditem.price.toLocaleString()}원
           </S.ItemPrice>
           <S.ButtonWrapper>
-            <S.PickBtn>
-              찜하기{" "}
+            <S.PickBtn onClick={props.onClickPick}>
+              찜하기
               {props.itemData && props.itemData?.fetchUseditem.pickedCount}
               <S.PickIcon src="/detail/icons/pick.png" />
             </S.PickBtn>
-            <S.BuyBtn>구매하기</S.BuyBtn>
+            <S.BuyBtn type="button" onClick={props.showBuyConfirm}>
+              구매하기
+            </S.BuyBtn>
           </S.ButtonWrapper>
         </S.InfoWrapper>
       </S.ItemInfoWrapper>
@@ -83,7 +85,6 @@ export default function DetailUI(props: IDetailUIProps) {
       )}
       <RowLine />
       <S.Title>Q & A</S.Title>
-
       <QuestionWrite />
       <QuestionList />
     </S.Body>

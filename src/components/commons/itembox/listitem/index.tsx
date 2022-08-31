@@ -5,6 +5,9 @@ import { getDate } from "../../../../commons/libraries/utils";
 export interface ISeller {
   name: string;
 }
+export interface IFiles {
+  url?: string;
+}
 export interface IFetchUseditems {
   _id: string;
   name: string;
@@ -14,7 +17,7 @@ export interface IFetchUseditems {
   createdAt: Date;
   pickedCount: number;
   seller: ISeller;
-  images: Array<string>;
+  images: Array<IFiles>;
 }
 export interface IListItemProps {
   el: IFetchUseditems;

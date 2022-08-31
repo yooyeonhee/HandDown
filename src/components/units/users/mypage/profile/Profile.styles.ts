@@ -17,8 +17,8 @@ export const Title = styled.div`
   }
 `;
 export const ProfileWrapper = styled.div`
-  width: 70%;
-  height: 500px;
-  background-color: yellow;
+  width: 100%;
+  height: 300px;
+  background-color: #e8edee;
   margin: 0px auto;
 `;

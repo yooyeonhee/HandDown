@@ -22,7 +22,7 @@ export default function Header() {
     router.push("/market");
   };
   const onClickToMypage = () => {
-    router.push("/users/mypage");
+    router.push("/users/mymarket");
   };
   const onClickToMain = () => {
     router.push("/");

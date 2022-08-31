@@ -56,7 +56,7 @@ export default function QuestionWrite(props: IQuestionWriteProps) {
     if (!contents) {
       Modal.error({ content: "수정한 내용이 없습니다." });
       props.setAddress("");
-      props.setIsEdit((prev) => !prev);
+      props.setIsEdit((prev: boolean) => !prev);
       return;
     }
     await updateQuestion({
@@ -76,7 +76,7 @@ export default function QuestionWrite(props: IQuestionWriteProps) {
       ],
     });
     props.setAddress("");
-    props.setIsEdit((prev) => !prev);
+    props.setIsEdit((prev: boolean) => !prev);
   };
   return (
     <QuestionWriteUI

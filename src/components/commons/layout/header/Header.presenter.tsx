@@ -31,17 +31,14 @@ export default function HeaderUI(props: IHeaderUIProps) {
         {!props.isHiddenMenu && (
           <S.MenuWrapper>
             <S.Menu>
-              <S.MenuIcon src="/header/menu/mypage.png"></S.MenuIcon>
-              <S.MenuTitle>내 프로필</S.MenuTitle>
+              <S.MenuIcon src="/header/menu/market.png"></S.MenuIcon>
+              <S.MenuTitle>내 장터</S.MenuTitle>
             </S.Menu>
             <S.Menu>
               <S.MenuIcon src="/header/menu/point.png"></S.MenuIcon>
               <S.MenuTitle>내 포인트</S.MenuTitle>
             </S.Menu>
-            <S.Menu>
-              <S.MenuIcon src="/header/menu/market.png"></S.MenuIcon>
-              <S.MenuTitle>내 장터</S.MenuTitle>
-            </S.Menu>
+
             <S.Menu onClick={props.onClickToNew}>
               <S.MenuIcon src="/header/menu/write.png"></S.MenuIcon>
               <S.MenuTitle>상품 등록</S.MenuTitle>
