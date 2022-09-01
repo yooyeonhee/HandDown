@@ -29,12 +29,12 @@ export default function HeaderUI(props: IHeaderUIProps) {
           )}
         </S.HeaderWrapper>
         {!props.isHiddenMenu && (
-          <S.MenuWrapper>
+          <S.MenuWrapper onClick={props.onClickToMypage}>
             <S.Menu>
               <S.MenuIcon src="/header/menu/market.png"></S.MenuIcon>
               <S.MenuTitle>내 장터</S.MenuTitle>
             </S.Menu>
-            <S.Menu>
+            <S.Menu onClick={props.onClickToMyPoint}>
               <S.MenuIcon src="/header/menu/point.png"></S.MenuIcon>
               <S.MenuTitle>내 포인트</S.MenuTitle>
             </S.Menu>

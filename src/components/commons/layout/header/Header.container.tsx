@@ -24,6 +24,9 @@ export default function Header() {
   const onClickToMypage = () => {
     router.push("/users/mymarket");
   };
+  const onClickToMyPoint = () => {
+    router.push("/users/mypoint");
+  };
   const onClickToMain = () => {
     router.push("/");
   };
@@ -55,6 +58,7 @@ export default function Header() {
       setIsOpenMenu={setIsOpenMenu}
       onClickToMain={onClickToMain}
       onClickToNew={onClickToNew}
+      onClickToMyPoint={onClickToMyPoint}
     />
   );
 }
