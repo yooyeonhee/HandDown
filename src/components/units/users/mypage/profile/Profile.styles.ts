@@ -30,16 +30,18 @@ export const ProfileLeftInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 10px;
 `;
 export const ProfileImg = styled.img`
   width: 200px;
   height: 200px;
   border-radius: 90%;
 `;
-export const ProfileEmail = styled.div`
-  font-size: 15px;
-  margin-top: 20px;
+export const ProfileName = styled.div`
+  font-size: 20px;
+`;
+export const FunctionBtn = styled.div`
+  font-size: 16px;
 `;
 export const ProfileRightInfo = styled.div`
   width: 70%;

@@ -5,6 +5,7 @@ export const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #444444;
   }
   @font-face {
     font-family: "Football_B";

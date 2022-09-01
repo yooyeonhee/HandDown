@@ -7,6 +7,10 @@ export const FETCH_POINT_TRANSACTIONS = gql`
       amount
       balance
       status
+      createdAt
+      useditem {
+        price
+      }
     }
   }
 `;
