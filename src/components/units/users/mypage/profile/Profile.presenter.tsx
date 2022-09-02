@@ -24,7 +24,7 @@ export default function ProfileUI(props: IProfileUIProps) {
             </S.CircleInfo>
             <S.CircleInfo>
               <S.InfoIcon src="/mypage/list.png" />
-              <S.InfoTitle>판매 상품</S.InfoTitle>
+              <S.InfoTitle>판매한 상품</S.InfoTitle>
               <S.InfoCount>
                 {props.productCount?.fetchUseditemsCountISold}
               </S.InfoCount>

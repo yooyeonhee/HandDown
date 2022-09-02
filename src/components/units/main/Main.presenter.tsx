@@ -5,7 +5,6 @@ import * as S from "./Main.styles";
 import { v4 as uuidv4 } from "uuid";
 import { IFetchUseditemsOfTheBest, IMainUIProps } from "./Main.types";
 export default function MainUI(props: IMainUIProps) {
-  console.log(props.bestItem);
   return (
     <S.Body>
       <S.ContentWrapper>

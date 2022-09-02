@@ -1,14 +1,17 @@
 import { gql } from "@apollo/client";
 
-export const FETCH_USED_ITEM_QUESTIONS = gql`
-  query fetchUseditemQuestions($page: Int, $useditemId: ID!) {
-    fetchUseditemQuestions(page: $page, useditemId: $useditemId) {
+export const FETCH_USED_ITEM_QUESTIONS_ANSWER = gql`
+  query fetchUseditemQuestionAnswers($page: Int, $useditemQuestionId: ID!) {
+    fetchUseditemQuestionAnswers(
+      page: $page
+      useditemQuestionId: $useditemQuestionId
+    ) {
       _id
+      contents
       user {
         name
         email
       }
-      contents
       createdAt
     }
   }

@@ -41,11 +41,16 @@ export default function QuestionItemUI(props: IQuestionItemUIProps) {
                   </S.FuncOption>
                 ) : (
                   <S.FuncOption>
-                    <S.AnswerIcon
-                      src="/question/icons/answer.png"
-                      // onClick={props.onClickAnswer}
-                      id={props.el._id}
-                    ></S.AnswerIcon>
+                    {props.itemData?.fetchUseditem.seller.email ===
+                    props.loginData?.fetchUserLoggedIn.email ? (
+                      <S.AnswerIcon
+                        src="/question/icons/answer.png"
+                        id={props.el._id}
+                        onClick={props.onClickAnswer}
+                      ></S.AnswerIcon>
+                    ) : (
+                      <></>
+                    )}
                   </S.FuncOption>
                 )}
               </S.QuestionNameFunc>

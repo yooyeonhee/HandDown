@@ -7,7 +7,6 @@ import { v4 as uuidv4 } from "uuid";
 import { IDetailUIProps } from "./Detail.types";
 import QuestionList from "../question/questionlist/QuestionList.container";
 export default function DetailUI(props: IDetailUIProps) {
-  console.log(props.mainImg);
   return (
     <S.Body>
       <RowLine />
@@ -86,7 +85,7 @@ export default function DetailUI(props: IDetailUIProps) {
       <RowLine />
       <S.Title>Q & A</S.Title>
       <QuestionWrite />
-      <QuestionList />
+      <QuestionList itemData={props.itemData} />
     </S.Body>
   );
 }

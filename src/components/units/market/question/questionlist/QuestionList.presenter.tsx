@@ -5,6 +5,9 @@ import {
   IFetchUseditemQuestions,
   IQuestionListUIProps,
 } from "./QuestionList.types";
+import QuestionWrite from "../questionwrite/QuestionWrite.container";
+import AnswerWrite from "../answerwrite/AnswerWrite.container";
+import AnswerList from "../answerlist/AnswerList.container";
 
 export default function QuestionListUI(props: IQuestionListUIProps) {
   return (
@@ -15,26 +18,28 @@ export default function QuestionListUI(props: IQuestionListUIProps) {
         hasMore={true}
         useWindow={false}
       >
-        {props.questionData?.fetchUseditemQuestions.map(
-          (el: IFetchUseditemQuestions) => (
-            <S.CommentItems key={el._id}>
-              <QuestionItem
-                el={el}
-                setIsAnswer={props.setIsAnswer}
-                setAnswerAddress={props.setAnswerAddress}
-              />
-              {/* <ProductQuestionAnswerListFunction /> */}
-              {/* {console.log(props.answerAddress)}
-            {console.log(el._id)} */}
-              {/* {props.answerAddress === el._id && (
-              <ProductQuestionAnswerWriteFunction
-                answerAddress={props.answerAddress}
-                setAnswerAddress={props.setAnswerAddress}
-              />
-            )} */}
-              {/* <ProductQuestionAnswerListFunction addressId={el._id} /> */}
-            </S.CommentItems>
+        {props.questionData ? (
+          props.questionData?.fetchUseditemQuestions.map(
+            (el: IFetchUseditemQuestions) => (
+              <S.QuestionItems key={el._id}>
+                <QuestionItem
+                  el={el}
+                  setIsAnswer={props.setIsAnswer}
+                  setAnswerAddress={props.setAnswerAddress}
+                  itemData={props.itemData}
+                />
+                {props.answerAddress === el._id && (
+                  <AnswerWrite
+                    answerAddress={props.answerAddress}
+                    setAnswerAddress={props.setAnswerAddress}
+                  />
+                )}
+                <AnswerList addressId={el._id} />
+              </S.QuestionItems>
+            )
           )
+        ) : (
+          <></>
         )}
       </InfiniteScroll>
     </S.Body>

@@ -8,9 +8,9 @@ import {
   FETCH_USED_ITEM_QUESTIONS,
   FETCH_USER_LOGGED_IN,
 } from "./QuestionItem.queries";
-import { IQuestionItemUIProps } from "./QuestionItem.types";
+import { IQuestionItemProps, IQuestionItemUIProps } from "./QuestionItem.types";
 
-export default function QuestionItem(props: IQuestionItemUIProps) {
+export default function QuestionItem(props: IQuestionItemProps) {
   const router = useRouter();
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
   const [deleteQuestion] = useMutation(DELETE_USED_ITEM_QUESTIONS);
@@ -61,10 +61,10 @@ export default function QuestionItem(props: IQuestionItemUIProps) {
     setIsEdit((prev) => !prev);
   };
 
-  // const onClickAnswer = async (event: MouseEvent<HTMLImageElement>) => {
-  //   props.setAnswerAddress(event.currentTarget.id);
-  //   props.setIsAnswer((prev: boolean) => !prev);
-  // };
+  const onClickAnswer = async (event: MouseEvent<HTMLImageElement>) => {
+    props.setAnswerAddress(event.currentTarget.id);
+    props.setIsAnswer((prev: boolean) => !prev);
+  };
 
   return (
     <QuestionItemUI
@@ -75,12 +75,13 @@ export default function QuestionItem(props: IQuestionItemUIProps) {
       handleOk={handleOk}
       handleCancel={handleCancel}
       isModalVisible={isModalVisible}
-      // onClickAnswer={onClickAnswer}
+      onClickAnswer={onClickAnswer}
       address={address}
       onClickUpdate={onClickUpdate}
       isEdit={isEdit}
       setAddress={setAddress}
       setIsEdit={setIsEdit}
+      itemData={props.itemData}
     />
   );
 }

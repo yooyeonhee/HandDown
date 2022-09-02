@@ -65,7 +65,7 @@ export default function Detail() {
   };
   const onClickBuyAndSell = async () => {
     try {
-      const result = await buyAndSell({
+      await buyAndSell({
         variables: { useritemId: itemData?.fetchUseditem._id },
         refetchQueries: [
           {
@@ -78,7 +78,6 @@ export default function Detail() {
       });
       successBuy();
       router.push(`/`);
-      console.log(result);
     } catch (error) {
       console.log(error);
     }

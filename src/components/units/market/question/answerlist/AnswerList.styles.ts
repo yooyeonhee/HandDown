@@ -2,12 +2,12 @@ import { ExclamationCircleOutlined } from "@ant-design/icons";
 import styled from "@emotion/styled";
 
 export const Body = styled.div`
-  width: 100%;
-  height: 500px;
+  width: 80%;
+  height: auto;
   overflow: auto;
+  margin: 0px auto;
 `;
-export const QuestionItems = styled.div`
+export const AnswerItems = styled.div`
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #bdbdbd;
 `;
