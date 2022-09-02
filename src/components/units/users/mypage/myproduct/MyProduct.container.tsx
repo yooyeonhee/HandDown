@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import { OmitProps } from "antd/lib/transfer/ListBody";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import MyProductUI from "./MyProduct.presenter";
@@ -12,7 +13,13 @@ import {
 export default function MyProduct() {
   const router = useRouter();
   const [option, setOption] = useState("sold");
+  const [optionSelect, setOptionSelect] = useState([true, false]);
   const onClickOption = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.currentTarget.id === "sold") {
+      setOptionSelect([true, false]);
+    } else {
+      setOptionSelect([false, true]);
+    }
     setOption(event.currentTarget.id);
   };
   const { data: ProductData, refetch: refetchProductData } = useQuery(
@@ -30,9 +37,9 @@ export default function MyProduct() {
   const { data: PickedDataCount, refetch: refetchPickedDataCount } = useQuery(
     FETCH_USED_ITEM_COUNT_I_PICKED
   );
-  console.log(PickedData);
-  console.log(PickedDataCount);
-
+  const onClickTitleToDetail = (event: MouseEvent<HTMLDivElement>) => {
+    router.push(`/market/${event.currentTarget.id}`);
+  };
   return (
     <MyProductUI
       ProductData={ProductData}
@@ -43,6 +50,8 @@ export default function MyProduct() {
       PickedData={PickedData}
       PickedDataCount={PickedDataCount}
       refetchPickedData={refetchPickedData}
+      onClickTitleToDetail={onClickTitleToDetail}
+      optionSelect={optionSelect}
     />
   );
 }

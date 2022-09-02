@@ -10,13 +10,37 @@ export default function MyPointUI(props: IMyPointUIProps) {
   return (
     <S.Body>
       <S.TableOptionWrapper>
-        <S.TableOption id="sold">전체 내역</S.TableOption>
+        <S.TableOption
+          onClick={props.onClickOption}
+          id="all"
+          isSelect={props.optionSelect[0]}
+        >
+          전체 내역
+        </S.TableOption>
         <ColumnLine />
-        <S.TableOption id="pick">구매 내역</S.TableOption>
+        <S.TableOption
+          onClick={props.onClickOption}
+          id="buy"
+          isSelect={props.optionSelect[1]}
+        >
+          구매 내역
+        </S.TableOption>
         <ColumnLine />
-        <S.TableOption id="pick">판매 내역</S.TableOption>
+        <S.TableOption
+          onClick={props.onClickOption}
+          id="sell"
+          isSelect={props.optionSelect[2]}
+        >
+          판매 내역
+        </S.TableOption>
         <ColumnLine />
-        <S.TableOption id="pick">충전 내역</S.TableOption>
+        <S.TableOption
+          onClick={props.onClickOption}
+          id="load"
+          isSelect={props.optionSelect[3]}
+        >
+          충전 내역
+        </S.TableOption>
       </S.TableOptionWrapper>
       <S.TableTop />
       <S.Row>
@@ -25,20 +49,63 @@ export default function MyPointUI(props: IMyPointUIProps) {
         <S.ColumnHeaderBasic>금액</S.ColumnHeaderBasic>
         <S.ColumnHeaderBasic>잔액</S.ColumnHeaderBasic>
       </S.Row>
-      {props.pointData?.fetchPointTransactions.map(
-        (el: IFetchPointTransactions) => (
-          <S.Row key={el._id}>
-            <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
-            <S.ColumnTitle id={el._id}>{el.status}</S.ColumnTitle>
-            <S.ColumnBasic>{el.amount}</S.ColumnBasic>
-            <S.ColumnBasic>{el.balance}</S.ColumnBasic>
-          </S.Row>
-        )
+      {props.option === "all" && (
+        <>
+          {props.pointData?.fetchPointTransactions.map(
+            (el: IFetchPointTransactions) => (
+              <S.Row key={el._id}>
+                <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
+                <S.ColumnTitle id={el._id}>{el.status}</S.ColumnTitle>
+                <S.ColumnBasic>{el.amount.toLocaleString()}원</S.ColumnBasic>
+                <S.ColumnBasic>{el.balance.toLocaleString()}원</S.ColumnBasic>
+              </S.Row>
+            )
+          )}
+        </>
+      )}
+      {props.option === "buy" && (
+        <>
+          {props.buyingData?.fetchPointTransactionsOfBuying.map(
+            (el: IFetchPointTransactions) => (
+              <S.Row key={el._id}>
+                <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
+                <S.ColumnTitle id={el._id}>{el.status}</S.ColumnTitle>
+                <S.ColumnBasic>{el.amount.toLocaleString()}원</S.ColumnBasic>
+                <S.ColumnBasic>{el.balance.toLocaleString()}원</S.ColumnBasic>
+              </S.Row>
+            )
+          )}
+        </>
+      )}
+      {props.option === "sell" && (
+        <>
+          {props.sellingData?.fetchPointTransactionsOfSelling.map(
+            (el: IFetchPointTransactions) => (
+              <S.Row key={el._id}>
+                <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
+                <S.ColumnTitle id={el._id}>{el.status}</S.ColumnTitle>
+                <S.ColumnBasic>{el.amount.toLocaleString()}원</S.ColumnBasic>
+                <S.ColumnBasic>{el.balance.toLocaleString()}원</S.ColumnBasic>
+              </S.Row>
+            )
+          )}
+        </>
+      )}
+      {props.option === "load" && (
+        <>
+          {props.loadingData?.fetchPointTransactionsOfLoading.map(
+            (el: IFetchPointTransactions) => (
+              <S.Row key={el._id}>
+                <S.ColumnBasic>{getDate(el.createdAt)}</S.ColumnBasic>
+                <S.ColumnTitle id={el._id}>{el.status}</S.ColumnTitle>
+                <S.ColumnBasic>{el.amount.toLocaleString()}원</S.ColumnBasic>
+                <S.ColumnBasic>{el.balance.toLocaleString()}원</S.ColumnBasic>
+              </S.Row>
+            )
+          )}
+        </>
       )}
       <S.TableBottom />
-      {/* <S.Footer>
-        <MypagePagination refetch={props.refetch} count={props.count} />
-      </S.Footer> */}
     </S.Body>
   );
 }

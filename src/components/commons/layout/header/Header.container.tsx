@@ -12,31 +12,41 @@ export default function Header() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false); // 메뉴의 초기값을 false로 설정
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
+  const [menuSelect, setMenuSelect] = useState([true, false, false, false]);
   const [logoutUser] = useMutation(LOG_OUT_USER);
-
   const showModal = () => {
     setIsModalVisible(true);
+    setIsOpenMenu(false);
   };
   const onClickToLogin = () => {
     router.push("/users/login");
+    setIsOpenMenu(false);
   };
   const onClickToSignup = () => {
     router.push("/users/signup");
+    setIsOpenMenu(false);
   };
   const onClickToMarket = () => {
     router.push("/market");
+    setIsOpenMenu(false);
   };
   const onClickToMypage = () => {
     router.push("/users/mymarket");
+    setMenuSelect([true, false, false, false]);
+    setIsOpenMenu(false);
   };
   const onClickToMyPoint = () => {
     router.push("/users/mypoint");
+    setMenuSelect([false, true, false, false]);
+    setIsOpenMenu(false);
   };
   const onClickToMain = () => {
     router.push("/");
   };
   const onClickToNew = () => {
     router.push("/market/new");
+    setMenuSelect([false, false, true, false]);
+    setIsOpenMenu(false);
   };
   const onClickLogout = async () => {
     try {
@@ -67,6 +77,8 @@ export default function Header() {
       isModalVisible={isModalVisible}
       showModal={showModal}
       setIsModalVisible={setIsModalVisible}
+      menuSelect={menuSelect}
+      setMenuSelect={setMenuSelect}
     />
   );
 }

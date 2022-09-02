@@ -8,11 +8,19 @@ export default function MyProductUI(props: IMyProductUIProps) {
   return (
     <S.Body>
       <S.TableOptionWrapper>
-        <S.TableOption id="sold" onClick={props.onClickOption}>
+        <S.TableOption
+          id="sold"
+          onClick={props.onClickOption}
+          isSelect={props.optionSelect[0]}
+        >
           등록한 상품
         </S.TableOption>
         <ColumnLine />
-        <S.TableOption id="pick" onClick={props.onClickOption}>
+        <S.TableOption
+          id="pick"
+          onClick={props.onClickOption}
+          isSelect={props.optionSelect[1]}
+        >
           찜한 상품
         </S.TableOption>
       </S.TableOptionWrapper>
@@ -28,7 +36,11 @@ export default function MyProductUI(props: IMyProductUIProps) {
 
           {props.ProductData?.fetchUseditemsISold.map(
             (el: any, index: number) => (
-              <S.Row key={el._id}>
+              <S.Row
+                key={el._id}
+                id={el._id}
+                onClick={props.onClickTitleToDetail}
+              >
                 <S.ColumnBasic>{index + 1}</S.ColumnBasic>
                 <S.ColumnTitle id={el._id}>{el.name}</S.ColumnTitle>
                 <S.ColumnBasic>{el.price.toLocaleString()}원</S.ColumnBasic>
@@ -61,7 +73,11 @@ export default function MyProductUI(props: IMyProductUIProps) {
 
           {props.PickedData?.fetchUseditemsIPicked.map(
             (el: any, index: number) => (
-              <S.Row key={el._id}>
+              <S.Row
+                key={el._id}
+                id={el._id}
+                onClick={props.onClickTitleToDetail}
+              >
                 <S.ColumnBasic>{index + 1}</S.ColumnBasic>
                 <S.ColumnTitle id={el._id}>{el.name}</S.ColumnTitle>
                 <S.ColumnBasic>{el.price.toLocaleString()}원</S.ColumnBasic>

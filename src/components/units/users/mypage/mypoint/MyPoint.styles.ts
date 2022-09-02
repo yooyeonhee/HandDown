@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ITableOption } from "./MyPoint.types";
 
 export const Body = styled.div`
   width: 80%;
@@ -20,6 +21,9 @@ export const TableOptionWrapper = styled.div`
 export const TableOption = styled.div`
   font-size: 15px;
   cursor: pointer;
+  font-weight: ${(props: ITableOption) => (props.isSelect ? "600" : "400")};
+  color: ${(props: ITableOption) => (props.isSelect ? "#88D6EC" : "#cccccc")};
+  font-size: ${(props: ITableOption) => (props.isSelect ? "18px" : "15px")};
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -42,7 +46,6 @@ export const Row = styled.div`
 
 export const ColumnHeaderBasic = styled.div`
   width: 25%;
-  font-size: 18px;
   text-align: center;
   font-weight: 600;
   @media (max-width: 768px) {

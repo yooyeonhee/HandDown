@@ -1,8 +1,30 @@
 import styled from "@emotion/styled";
+import { Menu } from "antd";
 import { Dispatch, SetStateAction } from "react";
+
+export interface IFetchUserLoggedIn {
+  name: string;
+  email: string;
+  userPoint: {
+    amount: number;
+  };
+}
+
 interface IToggleMenuProps {
   setIsOpenMenu: Dispatch<SetStateAction<boolean>>;
+  loginData: {
+    fetchUserLoggedIn: IFetchUserLoggedIn;
+  };
+  onClickToLogin: () => void;
+  onClickToSignup: () => void;
+  onClickToMarket: () => void;
+  onClickToMypage: () => void;
+  onClickLogout: () => Promise<void>;
+  onClickToNew: () => void;
+  onClickToMyPoint: () => void;
+  showModal: () => void;
 }
+
 const Body = styled.div`
   width: 35%;
   min-width: 250px;
@@ -24,6 +46,24 @@ const CancelIcon = styled.img`
   top: 30px;
   right: 30px;
 `;
+const MainMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  padding: 30px;
+`;
+
+const MenuItem = styled.span`
+  font-size: 18px;
+  margin: 5px;
+  cursor: pointer;
+`;
+const MenuSubItem = styled.span`
+  font-size: 15px;
+  margin: 5px;
+  margin-left: 30px;
+  cursor: pointer;
+`;
 export default function ToggleMenu(props: IToggleMenuProps) {
   const onClickCancel = () => {
     props.setIsOpenMenu((isOpen: boolean) => !isOpen);
@@ -31,6 +71,23 @@ export default function ToggleMenu(props: IToggleMenuProps) {
   return (
     <Body>
       <CancelIcon src="/header/cancel.png" onClick={onClickCancel} />
+      {props.loginData ? (
+        <MainMenu>
+          <MenuItem>{props.loginData?.fetchUserLoggedIn.name}님</MenuItem>
+          <MenuSubItem onClick={props.onClickToMypage}>내 장터</MenuSubItem>
+          <MenuSubItem onClick={props.onClickToMyPoint}>내 포인트</MenuSubItem>
+          <MenuSubItem onClick={props.onClickToNew}>상품 등록</MenuSubItem>
+          <MenuSubItem onClick={props.showModal}>포인트 충전</MenuSubItem>
+          <MenuItem onClick={props.onClickLogout}>로그아웃</MenuItem>
+          <MenuItem onClick={props.onClickToMarket}>shop</MenuItem>
+        </MainMenu>
+      ) : (
+        <MainMenu>
+          <MenuItem onClick={props.onClickToLogin}>로그인</MenuItem>
+          <MenuItem onClick={props.onClickToSignup}>회원가입</MenuItem>
+          <MenuItem onClick={props.onClickToMarket}>shop</MenuItem>
+        </MainMenu>
+      )}
     </Body>
   );
 }

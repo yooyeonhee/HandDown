@@ -1,5 +1,5 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
-import { MouseEvent } from "react";
+import { MouseEvent, MouseEventHandler } from "react";
 
 export interface ISeller {
   name: string;
@@ -18,6 +18,9 @@ export interface IFetchUseditemsIPicked {
   createdAt: Date;
   soldAt: Date;
   seller: ISeller;
+}
+export interface ITableOption {
+  isSelect: boolean;
 }
 export interface IMyProductUIProps {
   ProductData: {
@@ -40,4 +43,6 @@ export interface IMyProductUIProps {
   refetchPickedData: (
     variables?: Partial<OperationVariables> | undefined
   ) => Promise<ApolloQueryResult<any>>;
+  onClickTitleToDetail: (event: MouseEvent<HTMLDivElement>) => void;
+  optionSelect: boolean[];
 }

@@ -26,4 +26,10 @@ export interface IHeaderUIProps {
   isModalVisible: boolean;
   showModal: () => void;
   setIsModalVisible: Dispatch<SetStateAction<boolean>>;
+  menuSelect: boolean[];
+  setMenuSelect: Dispatch<SetStateAction<boolean[]>>;
+}
+export interface IMenuProps {
+  onClick: () => void;
+  isSelect: boolean;
 }

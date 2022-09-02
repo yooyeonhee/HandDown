@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IMenuProps } from "./Header.types";
 
 export const Body = styled.div`
   width: 100%;
@@ -29,6 +30,7 @@ export const BurgerMenu = styled.img`
   top: 50px;
   @media (max-width: 768px) {
     top: 30px;
+    right: 5%;
   }
 `;
 export const Navbar = styled.div`
@@ -83,6 +85,15 @@ export const Menu = styled.div`
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  filter: ${(props: IMenuProps) =>
+    props.isSelect
+      ? `invert(71%) sepia(88%) saturate(208%) hue-rotate(156deg)
+    brightness(97%) contrast(90%); : "2px 2px 2px #dbdbdb;"`
+      : "none"};
+  &:hover {
+    filter: invert(71%) sepia(88%) saturate(208%) hue-rotate(156deg)
+      brightness(97%) contrast(90%);
+  }
 `;
 export const MenuIcon = styled.img`
   margin-right: 10px;

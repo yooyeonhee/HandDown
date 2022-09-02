@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { ITableOption } from "./MyProduct.types";
 
 export const Body = styled.div`
   width: 80%;
@@ -19,8 +20,10 @@ export const TableOptionWrapper = styled.div`
   }
 `;
 export const TableOption = styled.div`
-  font-size: 15px;
   cursor: pointer;
+  font-weight: ${(props: ITableOption) => (props.isSelect ? "600" : "400")};
+  color: ${(props: ITableOption) => (props.isSelect ? "#88D6EC" : "#cccccc")};
+  font-size: ${(props: ITableOption) => (props.isSelect ? "18px" : "15px")};
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -42,7 +45,7 @@ export const TableTop = styled.div`
 `;
 
 export const ColumnHeaderBasic = styled.div`
-  width: 12%;
+  width: 20%;
   text-align: center;
   font-weight: 600;
   @media (max-width: 768px) {
@@ -51,7 +54,7 @@ export const ColumnHeaderBasic = styled.div`
 `;
 
 export const ColumnHeaderTitle = styled.div`
-  width: 60%;
+  width: 40%;
   text-align: center;
   font-weight: 600;
   @media (max-width: 768px) {
@@ -60,7 +63,7 @@ export const ColumnHeaderTitle = styled.div`
 `;
 
 export const ColumnBasic = styled.div`
-  width: 12%;
+  width: 20%;
   text-align: center;
   @media (max-width: 768px) {
     font-size: 12px;
@@ -68,7 +71,7 @@ export const ColumnBasic = styled.div`
 `;
 
 export const ColumnTitle = styled.div`
-  width: 60%;
+  width: 40%;
   text-align: center;
   cursor: pointer;
   @media (max-width: 768px) {
