@@ -45,6 +45,7 @@ export default function InputKakaoMap(props: any) {
                 result[0].y,
                 result[0].x
               );
+              console.log(coords);
               props.setLng(coords.La);
               props.setLat(coords.Ma);
               // 결과값으로 받은 위치를 마커로 표시합니다

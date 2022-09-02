@@ -1,12 +1,17 @@
-import { EventHandler, MouseEvent, useState } from "react";
+import { MouseEvent, useEffect, useState } from "react";
 import NewUI from "./New.presenter";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { CREATE_USED_ITEM } from "./New.queries";
+import { CREATE_USED_ITEM, UPDATE_USED_ITEM } from "./New.queries";
 import { useMutation } from "@apollo/client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { IData, IDaumPostcode } from "./New.types";
+import {
+  IData,
+  IDaumPostcode,
+  INewProps,
+  IUpdateUseditemInput,
+} from "./New.types";
 import { Modal } from "antd";
 
 const schema = yup.object({
@@ -16,15 +21,17 @@ const schema = yup.object({
   price: yup.number().required().min(0),
 });
 
-export default function New() {
+export default function New(props: INewProps) {
   const router = useRouter();
   const [fileUrls, setFileUrls] = useState<string[]>([]);
   const [checkTrade, setCheckTrade] = useState("meet");
   const [createUsedItem] = useMutation(CREATE_USED_ITEM);
+  const [updateUsedItem] = useMutation(UPDATE_USED_ITEM);
   const [address, setAddress] = useState("");
   const [postCode, setPostCode] = useState("000000");
   const [lat, setLat] = useState(3.0);
   const [lng, setLng] = useState(3.0);
+  const [isDelivery, setIsDelivery] = useState(false);
   const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
 
   const { register, handleSubmit, setValue, trigger } = useForm({
@@ -82,6 +89,7 @@ export default function New() {
               addressDetail: data.addressDetail,
               lat,
               lng,
+              zipcode: postCode,
             },
             images: fileUrls,
           },
@@ -97,9 +105,64 @@ export default function New() {
       Modal.error({ content: error.message });
     }
   };
+  const onClickUpdate = async (data: IData) => {
+    if (
+      !data.name &&
+      !data.remarks &&
+      !data.contents &&
+      !data.price &&
+      !fileUrls &&
+      !address
+    ) {
+      alert("수정한 내용이 없습니다.");
+      return;
+    }
+    const updateUseditemInput: IUpdateUseditemInput = {};
+    if (data.name) updateUseditemInput.name = data.name;
+    if (data.remarks) updateUseditemInput.remarks = data.remarks;
+    if (data.contents) updateUseditemInput.contents = data.contents;
+    if (data.price) updateUseditemInput.price = data.price;
+    if (fileUrls) updateUseditemInput.images = fileUrls;
+
+    if (address || data.addressDetail) {
+      updateUseditemInput.useditemAddress = {};
+      if (address) {
+        updateUseditemInput.useditemAddress.address = address;
+        updateUseditemInput.useditemAddress.lat = lat;
+        updateUseditemInput.useditemAddress.lng = lng;
+      }
+      if (data.addressDetail)
+        updateUseditemInput.useditemAddress.addressDetail = data.addressDetail;
+    }
+    try {
+      const result = await updateUsedItem({
+        variables: {
+          useditemId: router.query.productId,
+          updateUseditemInput,
+        },
+      });
+      // setResultRouteId(result.data.updateUseditemInput._id);
+      router.push(`/market/${result.data.updateUseditem._id}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (props.productData?.fetchUseditem.images.length) {
+      setFileUrls([...props.productData?.fetchUseditem.images]);
+    }
+    if (props.productData?.fetchUseditem.useditemAddress.zipcode) {
+      setPostCode(props.productData?.fetchUseditem.useditemAddress.zipcode);
+    }
+    if (props.productData?.fetchUseditem.useditemAddress.address) {
+      setAddress(props.productData?.fetchUseditem.useditemAddress.address);
+    }
+  }, [props.productData]);
 
   return (
     <NewUI
+      isEdit={props.isEdit}
+      productData={props.productData}
       onChangeFiles={onChangeFiles}
       fileUrls={fileUrls}
       onClickCheckTrade={onClickCheckTrade}
@@ -118,6 +181,7 @@ export default function New() {
       setLng={setLng}
       setLat={setLat}
       postCode={postCode}
+      onClickUpdate={onClickUpdate}
     />
   );
 }

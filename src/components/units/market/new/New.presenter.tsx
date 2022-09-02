@@ -12,7 +12,7 @@ export default function NewUI(props: INewUIProps) {
   return (
     <S.Body>
       <S.Wrapper>
-        <S.Title>상품등록</S.Title>
+        <S.Title>{props.isEdit ? "상품 수정" : "상품 등록"}</S.Title>
         <S.ImageItemWrapper>
           {new Array(props.fileUrls.length + 1).fill(1).map((_, index) => (
             <UploadImage
@@ -23,27 +23,33 @@ export default function NewUI(props: INewUIProps) {
             />
           ))}
         </S.ImageItemWrapper>
-        <S.FormWrapper onSubmit={props.handleSubmit(props.onClickSubmit)}>
+        <S.FormWrapper
+          onSubmit={props.handleSubmit(
+            props.isEdit ? props.onClickUpdate : props.onClickSubmit
+          )}
+        >
           <FormInput
             label="제품명*"
             placeholder="상품명을 입력해주세요."
             register={props.register("name")}
+            defaultValue={props.productData?.fetchUseditem.name}
           />
           <FormInput
             label="상품요약*"
             placeholder="상품에 대한 정보를 간략하게 작성해주세요."
             register={props.register("remarks")}
+            defaultValue={props.productData?.fetchUseditem.remarks}
           />
           <S.InputLabel>상품설명*</S.InputLabel>
           <S.InputQuill
             onChange={props.onChangeContents}
-            // defaultValue={props.productData?.fetchUseditem.contents}
-            // onChange={props.onChangeContents}
+            defaultValue={props.productData?.fetchUseditem.contents}
           />
           <FormInput
             label="판매가격*"
             placeholder="상품 가격을 작성해주세요."
             register={props.register("price")}
+            defaultValue={props.productData?.fetchUseditem.price}
           />
           <S.ChooseWrapper>
             <S.InputLabel style={{ width: "20vw" }}>거래방법*</S.InputLabel>
@@ -101,6 +107,10 @@ export default function NewUI(props: INewUIProps) {
                   <S.Input readOnly placeholder="주소" value={props.address} />
                   <S.Input
                     placeholder="상세주소를 입력해주세요."
+                    defaultValue={
+                      props.productData?.fetchUseditem.useditemAddress
+                        .addressDetail
+                    }
                     {...props.register("addressDetail")}
                   />
                 </S.AddressInputWrapper>
@@ -113,7 +123,9 @@ export default function NewUI(props: INewUIProps) {
             <S.CancelBtn type="button" onClick={props.onClickCancel}>
               취소
             </S.CancelBtn>
-            <S.SubmitBtn type="submit">등록</S.SubmitBtn>
+            <S.SubmitBtn type="submit">
+              {props.isEdit ? "수정" : "등록"}
+            </S.SubmitBtn>
           </S.ButtonWrapper>
         </S.FormWrapper>
       </S.Wrapper>

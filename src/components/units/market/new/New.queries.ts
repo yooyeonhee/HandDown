@@ -14,6 +14,7 @@ export const CREATE_USED_ITEM = gql`
         addressDetail
         lat
         lng
+        zipcode
       }
     }
   }

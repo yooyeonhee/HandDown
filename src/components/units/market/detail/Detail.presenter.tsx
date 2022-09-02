@@ -36,6 +36,16 @@ export default function DetailUI(props: IDetailUIProps) {
         <S.InfoWrapper>
           <S.TitleWrapper>
             <S.ItemTitle>{props.itemData?.fetchUseditem.name}</S.ItemTitle>
+            {props.userData?.fetchUserLoggedIn.email ===
+              props.itemData?.fetchUseditem.seller.email && (
+              <>
+                <S.FuncIcon
+                  src="/detail/icons/edit.png"
+                  onClick={props.onClickToEdit}
+                />
+                <S.FuncIcon src="/detail/icons/delete.png" />
+              </>
+            )}
             {/* <S.ItemIsSold>판매중</S.ItemIsSold> */}
           </S.TitleWrapper>
 

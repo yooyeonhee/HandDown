@@ -6,7 +6,7 @@ interface IFormInputProps {
   label?: string;
   placeholder?: string | undefined;
   type?: string;
-  defaultValue?: string;
+  defaultValue?: string | number;
   readOnly?: boolean;
   register?: object;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void | undefined;

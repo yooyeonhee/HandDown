@@ -42,6 +42,9 @@ export default function Detail() {
     });
   };
 
+  const onClickToEdit = () => {
+    router.push(`/market/${router.query.productId}/edit`);
+  };
   const { confirm } = Modal;
 
   const showBuyConfirm = () => {
@@ -91,6 +94,7 @@ export default function Detail() {
       mainImg={mainImg}
       onClickSubImage={onClickSubImage}
       showBuyConfirm={showBuyConfirm}
+      onClickToEdit={onClickToEdit}
     />
   );
 }

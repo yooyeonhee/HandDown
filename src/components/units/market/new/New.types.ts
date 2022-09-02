@@ -1,21 +1,44 @@
 import { Dispatch, MouseEvent, SetStateAction } from "react";
-import {
-  FieldValue,
-  FieldValues,
-  UseFormHandleSubmit,
-  UseFormRegister,
-} from "react-hook-form";
-import { IUsedItemAddress } from "../detail/Detail.types";
+import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
+export interface IUsedItemAddress {
+  address: string;
+  addressDetail: string;
+  lat: number;
+  lng: number;
+  zipcode?: string;
+}
+export interface ISeller {
+  name: string;
+  email: String;
+}
+export interface IFetchUseditem {
+  _id?: string;
+  name: string;
+  remarks: string;
+  contents: string;
+  price: number;
+  images: Array<string>;
+  pickedCount: number;
+  createdAt: Date;
+  useditemAddress: IUsedItemAddress;
+  seller: ISeller;
+}
+export interface INewProps {
+  isEdit: boolean;
+  productData: {
+    fetchUseditem: IFetchUseditem;
+  };
+}
 export interface IDaumPostcode {
   zonecode: string;
   address: string;
 }
 export interface IUseditemAddress {
-  address: string;
-  addressDetail: string;
-  lat: number;
-  lng: number;
+  address?: string;
+  addressDetail?: string;
+  lat?: number;
+  lng?: number;
 }
 export interface IFiles {
   url: string;
@@ -25,8 +48,24 @@ export interface ICreateUseditem {
   remarks?: string;
   contents?: string;
   price?: number;
-  images?: Array<IFiles>;
+  images: Array<IFiles>;
   useditemAddress?: IUseditemAddress;
+}
+export interface IUpdateUseditemInput {
+  name?: string;
+  remarks?: string;
+  contents?: string;
+  price?: number;
+  images?: Array<string>;
+  pickedCount?: number;
+  createdAt?: Date;
+  useditemAddress?: {
+    address?: string;
+    addressDetail?: string;
+    lat?: number;
+    lng?: number;
+    zipcode?: string;
+  };
 }
 export interface IData {
   name?: string;
@@ -54,4 +93,9 @@ export interface INewUIProps {
   setLng: Dispatch<SetStateAction<number>>;
   setLat: Dispatch<SetStateAction<number>>;
   postCode: string;
+  isEdit: boolean;
+  productData: {
+    fetchUseditem: IFetchUseditem;
+  };
+  onClickUpdate: (data: IData) => Promise<void>;
 }

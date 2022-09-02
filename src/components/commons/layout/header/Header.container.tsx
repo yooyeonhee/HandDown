@@ -7,10 +7,15 @@ import { FETCH_USER_LOGGED_IN, LOG_OUT_USER } from "./Header.queries";
 
 export default function Header() {
   const router = useRouter();
-  const HIDDEN_MENU = ["/", "/market", `/market/${router.query.productId}`];
+  const HIDDEN_MENU = [
+    "/",
+    "/market",
+    `/market/${router.query.productId}`,
+    `/market/${router.query.productId}/edit`,
+  ];
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isOpenMenu, setIsOpenMenu] = useState(false); // 메뉴의 초기값을 false로 설정
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
   const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
   const [menuSelect, setMenuSelect] = useState([true, false, false, false]);
   const [logoutUser] = useMutation(LOG_OUT_USER);

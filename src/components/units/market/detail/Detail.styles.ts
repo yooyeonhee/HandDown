@@ -105,6 +105,11 @@ export const ItemTitle = styled.div`
     font-size: 20px;
   }
 `;
+export const FuncIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+`;
 export const ItemIsSold = styled.div`
   min-width: 50px;
   text-align: center;
