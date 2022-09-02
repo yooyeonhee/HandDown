@@ -6,10 +6,20 @@ export const Body = styled.div`
 export const ContentWrapper = styled.div`
   width: 100%;
   height: 40vw;
+  position: relative;
 `;
 export const ContentImg = styled.img`
   width: 100%;
   height: 40vw;
+`;
+export const GoShop = styled.div`
+  position: absolute;
+  right: 20%;
+  bottom: 30%;
+  color: #45596c;
+  font-size: 1.2vw;
+  font-weight: 400;
+  cursor: pointer;
 `;
 export const AboutWrapper = styled.div`
   width: 80%;

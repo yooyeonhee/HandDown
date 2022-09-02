@@ -15,4 +15,5 @@ export interface IMainUIProps {
   bestItem: {
     fetchUseditemsOfTheBest: Array<IFetchUseditemsOfTheBest>;
   };
+  onClickToShop: () => void;
 }

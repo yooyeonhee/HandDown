@@ -9,9 +9,14 @@ export default function Header() {
   const router = useRouter();
   const HIDDEN_MENU = ["/", "/market", `/market/${router.query.productId}`];
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false); // 메뉴의 초기값을 false로 설정
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  const { data: loginData } = useQuery(FETCH_USER_LOGGED_IN);
   const [logoutUser] = useMutation(LOG_OUT_USER);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
   const onClickToLogin = () => {
     router.push("/users/login");
   };
@@ -53,12 +58,15 @@ export default function Header() {
       onClickToMypage={onClickToMypage}
       onClickLogout={onClickLogout}
       onClickMenu={onClickMenu}
-      data={data}
+      loginData={loginData}
       isOpenMenu={isOpenMenu}
       setIsOpenMenu={setIsOpenMenu}
       onClickToMain={onClickToMain}
       onClickToNew={onClickToNew}
       onClickToMyPoint={onClickToMyPoint}
+      isModalVisible={isModalVisible}
+      showModal={showModal}
+      setIsModalVisible={setIsModalVisible}
     />
   );
 }

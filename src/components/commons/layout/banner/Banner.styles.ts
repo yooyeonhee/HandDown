@@ -25,6 +25,9 @@ export const StyledSlider = styled(Slider)`
   .slick-dots {
     //슬라이드의 위치
     bottom: 20px;
+    @media (max-width: 768px) {
+      bottom: 5px;
+    }
   }
   .slick-dots li button::before {
     font-size: 12px;

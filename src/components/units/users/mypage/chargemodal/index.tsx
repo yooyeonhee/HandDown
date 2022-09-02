@@ -1,5 +1,6 @@
 import { gql, useMutation } from "@apollo/client";
 import styled from "@emotion/styled";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
@@ -140,6 +141,17 @@ export default function ChargeModal(props: IChargeModalProps) {
   };
   return (
     <>
+      <Head>
+        <script
+          type="text/javascript"
+          src="https://code.jquery.com/jquery-1.12.4.min.js"
+        ></script>
+
+        <script
+          type="text/javascript"
+          src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"
+        ></script>
+      </Head>
       <PointModal>
         <CancelIcon src="/mypage/cancel.png" onClick={handleCancel} />
         <PointModalTitle>충전하실 금액을 선택해주세요!</PointModalTitle>

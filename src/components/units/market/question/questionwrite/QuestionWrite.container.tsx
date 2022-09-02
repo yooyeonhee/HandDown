@@ -1,22 +1,20 @@
 import { useMutation } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, MutableRefObject, useRef, useState } from "react";
 import QuestionWriteUI from "./QuestionWrite.presenter";
 import {
   CREATE_USED_ITEM_QUESTION,
   FETCH_USED_ITEM_QUESTIONS,
   UPDATE_USED_ITEM_QUESTION,
 } from "./QuestionWrite.queries";
-import {
-  IQuestionWriteProps,
-  IQuestionWriteUIProps,
-} from "./QuestionWrite.types";
+import { IQuestionWriteProps } from "./QuestionWrite.types";
 
 export default function QuestionWrite(props: IQuestionWriteProps) {
   const [contents, setContents] = useState("");
   const [count, setCount] = useState(0);
   const router = useRouter();
+  const inputRef = useRef() as MutableRefObject<HTMLTextAreaElement>;
 
   const [createQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
   const [updateQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
@@ -45,6 +43,8 @@ export default function QuestionWrite(props: IQuestionWriteProps) {
             },
           ],
         });
+        inputRef.current.value = "";
+        setCount(0);
         Modal.success({ content: "문의글이 등록되었습니다." });
       } catch (error: any) {
         Modal.error({ content: error.message });
@@ -86,6 +86,7 @@ export default function QuestionWrite(props: IQuestionWriteProps) {
       count={count}
       isEdit={props.isEdit}
       el={props.el}
+      inputRef={inputRef}
     />
   );
 }

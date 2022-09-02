@@ -3,10 +3,33 @@ import styled from "@emotion/styled";
 export const Body = styled.div`
   width: 80%;
   margin: 0px auto;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
-
+export const TableOptionWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 20px 0px;
+  @media (max-width: 768px) {
+    margin: 10px 0px;
+    margin-left: 20px;
+  }
+`;
+export const TableOption = styled.div`
+  font-size: 15px;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+export const TableTop = styled.div`
+  border-top: 2px solid #e5e5e5;
+  margin-top: 20px;
+`;
 export const TableBottom = styled.div`
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid #e5e5e5;
 `;
 
 export const Row = styled.div`
@@ -14,28 +37,43 @@ export const Row = styled.div`
   flex-direction: row;
   height: 52px;
   line-height: 52px;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #e5e5e5;
 `;
 
 export const ColumnHeaderBasic = styled.div`
-  width: 10%;
+  width: 25%;
+  font-size: 18px;
   text-align: center;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const ColumnHeaderTitle = styled.div`
-  width: 70%;
+  width: 25%;
   text-align: center;
+  font-weight: 600;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const ColumnBasic = styled.div`
-  width: 10%;
+  width: 25%;
   text-align: center;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const ColumnTitle = styled.div`
-  width: 70%;
+  width: 25%;
   text-align: center;
   cursor: pointer;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 export const Footer = styled.div`

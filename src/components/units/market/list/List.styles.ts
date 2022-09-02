@@ -83,6 +83,7 @@ export const ListWrapper = styled.div`
   width: 100%;
   height: 800px;
   overflow: auto;
+  margin-top: 20px;
   ::-webkit-scrollbar {
     display: none;
   }

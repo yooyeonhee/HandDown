@@ -23,6 +23,10 @@ export const ProfileImg = styled.div`
 export const Img = styled.img`
   width: 45px;
   height: 45px;
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
 `;
 export const QuestionInfo = styled.div`
   width: 100%;
@@ -45,6 +49,9 @@ export const QuestionName = styled.span`
   display: flex;
   flex-direction: row;
   align-items: center;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 export const FuncOption = styled.div`
   height: 100%;
@@ -58,6 +65,10 @@ export const EditIcon = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 20px;
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 export const DeleteModalWrapper = styled.div`
   display: flex;
@@ -67,6 +78,10 @@ export const DeleteModalWrapper = styled.div`
 export const DeleteIcon = styled.img`
   width: 20px;
   height: 20px;
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 export const DeleteModal = styled.div`
   font-size: 18px;
@@ -79,6 +94,10 @@ export const DeleteModal = styled.div`
 export const AnswerIcon = styled.img`
   width: 20x;
   height: 20px;
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 export const QuestionContent = styled.pre`
   font-style: normal;
@@ -87,6 +106,9 @@ export const QuestionContent = styled.pre`
   line-height: 24px;
   color: #4f4f4f;
   margin: 5px 0px 20px 0px;
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 export const QuestionDate = styled.span`
   font-style: normal;

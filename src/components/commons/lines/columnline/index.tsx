@@ -6,9 +6,6 @@ const Line = styled.div`
   width: 2px;
   background-color: #e5e5e5;
   margin: 0px 20px;
-  @media (max-width: 768px) {
-    margin-bottom: 20px;
-  }
 `;
 export default function ColumnLine() {
   return <Line />;

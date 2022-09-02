@@ -6,5 +6,9 @@ import { BEST_FETCH_USED_ITEMS } from "./Main.queries";
 export default function Main() {
   const router = useRouter();
   const { data: bestItem } = useQuery(BEST_FETCH_USED_ITEMS);
-  return <MainUI bestItem={bestItem} />;
+
+  const onClickToShop = () => {
+    router.push("/market");
+  };
+  return <MainUI bestItem={bestItem} onClickToShop={onClickToShop} />;
 }

@@ -17,7 +17,4 @@ export interface IProfileUIProps {
   pickCount: {
     fetchUseditemsCountIPicked: number;
   };
-  isModalVisible: boolean;
-  showModal: () => void;
-  setIsModalVisible: Dispatch<SetStateAction<boolean>>;
 }

@@ -14,6 +14,7 @@ export const HeaderWrapper = styled.div`
   justify-content: center;
   @media (max-width: 768px) {
     justify-content: flex-start;
+    height: 90px;
   }
 `;
 export const Logo = styled.img`
@@ -26,6 +27,9 @@ export const BurgerMenu = styled.img`
   position: absolute;
   right: 10%;
   top: 50px;
+  @media (max-width: 768px) {
+    top: 30px;
+  }
 `;
 export const Navbar = styled.div`
   display: flex;
@@ -83,6 +87,10 @@ export const Menu = styled.div`
 export const MenuIcon = styled.img`
   margin-right: 10px;
   height: 20px;
+`;
+export const MenuChargeIcon = styled.img`
+  margin-right: 10px;
+  height: 25px;
 `;
 export const MenuTitle = styled.div`
   font-size: 18px;

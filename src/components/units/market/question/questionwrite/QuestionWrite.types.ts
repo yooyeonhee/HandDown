@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction } from "react";
+import { ChangeEvent, MutableRefObject } from "react";
 import { IFetchUseditemQuestions } from "../questionitem/QuestionItem.types";
 
 export interface IQuestionWriteUIProps {
@@ -8,6 +8,7 @@ export interface IQuestionWriteUIProps {
   isEdit?: boolean;
   el?: IFetchUseditemQuestions;
   count?: number;
+  inputRef: MutableRefObject<HTMLTextAreaElement>;
 }
 export interface IQuestionWriteProps {
   isEdit?: boolean;

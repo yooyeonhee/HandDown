@@ -12,9 +12,6 @@ export default function ProfileUI(props: IProfileUIProps) {
             <S.ProfileName>
               {props.loginData?.fetchUserLoggedIn.name}
             </S.ProfileName>
-            <S.FunctionBtn onClick={props.showModal}>
-              {"> 포인트 충전"}
-            </S.FunctionBtn>
           </S.ProfileLeftInfo>
           <S.ProfileRightInfo>
             <S.CircleInfo>
@@ -42,12 +39,6 @@ export default function ProfileUI(props: IProfileUIProps) {
           </S.ProfileRightInfo>
         </S.ProfileWrapper>
       </S.Body>
-      {props.isModalVisible && (
-        <ChargeModal
-          setIsModalVisible={props.setIsModalVisible}
-          loginData={props.loginData}
-        />
-      )}
     </>
   );
 }

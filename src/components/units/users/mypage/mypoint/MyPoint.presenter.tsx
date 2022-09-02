@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { getDate } from "../../../../../commons/libraries/utils";
+import ColumnLine from "../../../../commons/lines/columnline";
 import RowLine from "../../../../commons/lines/rowline";
 import MypagePagination from "../../../../commons/pagination/mypage/MypagePagination.container";
 
@@ -8,7 +9,16 @@ import { IFetchPointTransactions, IMyPointUIProps } from "./MyPoint.types";
 export default function MyPointUI(props: IMyPointUIProps) {
   return (
     <S.Body>
-      <RowLine />
+      <S.TableOptionWrapper>
+        <S.TableOption id="sold">전체 내역</S.TableOption>
+        <ColumnLine />
+        <S.TableOption id="pick">구매 내역</S.TableOption>
+        <ColumnLine />
+        <S.TableOption id="pick">판매 내역</S.TableOption>
+        <ColumnLine />
+        <S.TableOption id="pick">충전 내역</S.TableOption>
+      </S.TableOptionWrapper>
+      <S.TableTop />
       <S.Row>
         <S.ColumnHeaderBasic>날짜</S.ColumnHeaderBasic>
         <S.ColumnHeaderTitle>내용</S.ColumnHeaderTitle>

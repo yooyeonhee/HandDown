@@ -10,6 +10,7 @@ export default function MainUI(props: IMainUIProps) {
     <S.Body>
       <S.ContentWrapper>
         <S.ContentImg src="./main/main.png" />
+        <S.GoShop onClick={props.onClickToShop}>{"바로가기 >>"} </S.GoShop>
       </S.ContentWrapper>
       <S.AboutWrapper>
         <S.AboutTextWrapper>
