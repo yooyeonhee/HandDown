@@ -110,33 +110,6 @@ export default function New(props: INewProps) {
     }
   };
   const onClickUpdate = async (data: IData) => {
-    // if (
-    //   !data.name &&
-    //   !data.remarks &&
-    //   !data.contents &&
-    //   !data.price &&
-    //   !fileUrls &&
-    //   !address &&
-    //   !detailAddress
-    // ) {
-    //   alert("수정한 내용이 없습니다.");
-    //   return;
-    // }
-    // const updateUseditemInput: IUpdateUseditemInput = {};
-    // if (data.name) updateUseditemInput.name = data.name;
-    // if (data.remarks) updateUseditemInput.remarks = data.remarks;
-    // if (data.contents) updateUseditemInput.contents = data.contents;
-    // if (data.price) updateUseditemInput.price = data.price;
-    // if (fileUrls) updateUseditemInput.images = fileUrls;
-
-    // if (address || data.addressDetail) {
-    //   updateUseditemInput.useditemAddress = {};
-    //   if (address) {
-    //     updateUseditemInput.useditemAddress.address = address;
-    //   }
-    //   if (data.addressDetail)
-    //     updateUseditemInput.useditemAddress.addressDetail = detailAddress;
-    // }
     const useditemAddress = {
       address,
       addressDetail: detailAddress,

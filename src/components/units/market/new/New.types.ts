@@ -25,8 +25,8 @@ export interface IFetchUseditem {
   seller: ISeller;
 }
 export interface INewProps {
-  isEdit: boolean;
-  productData: {
+  isEdit?: boolean;
+  productData?: {
     fetchUseditem: IFetchUseditem;
   };
 }
@@ -91,8 +91,8 @@ export interface INewUIProps {
   onChangeContents: (value: string) => void;
   address: string;
   postCode: string;
-  isEdit: boolean;
-  productData: {
+  isEdit?: boolean;
+  productData?: {
     fetchUseditem: IFetchUseditem;
   };
   onClickUpdate: (data: IData) => Promise<void>;

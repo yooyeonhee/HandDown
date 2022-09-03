@@ -1,4 +1,4 @@
-import { ChangeEvent, MutableRefObject } from "react";
+import { ChangeEvent, Dispatch, MutableRefObject, SetStateAction } from "react";
 import { IFetchUseditemQuestions } from "../questionitem/QuestionItem.types";
 
 export interface IQuestionWriteUIProps {
@@ -12,8 +12,8 @@ export interface IQuestionWriteUIProps {
 }
 export interface IQuestionWriteProps {
   isEdit?: boolean;
-  setAddress?: any;
-  setIsEdit?: any;
+  setAddress?: Dispatch<SetStateAction<string>>;
+  setIsEdit?: Dispatch<SetStateAction<boolean>>;
   address?: string;
   el?: IFetchUseditemQuestions;
 }

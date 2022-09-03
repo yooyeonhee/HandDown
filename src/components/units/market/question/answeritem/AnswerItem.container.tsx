@@ -4,7 +4,6 @@ import { MouseEvent } from "react";
 import AnswerItemUI from "./AnswerItem.presenter";
 import {
   DELETE_USED_ITEM_QUESTIONS_ANSWER,
-  FETCH_USED_ITEM_QUESTIONS_ANSWER,
   FETCH_USER_LOGGED_IN,
 } from "./AnswerItem.queries";
 import { AnswerItemProps } from "./AnswerItem.types";

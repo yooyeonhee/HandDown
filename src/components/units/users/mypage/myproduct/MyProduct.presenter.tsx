@@ -3,7 +3,11 @@ import ColumnLine from "../../../../commons/lines/columnline";
 import RowLine from "../../../../commons/lines/rowline";
 import MypagePagination from "../../../../commons/pagination/mypage/MypagePagination.container";
 import * as S from "./MyProduct.styles";
-import { IMyProductUIProps } from "./MyProduct.types";
+import {
+  IFetchUseditemsIPicked,
+  IFetchUseditemsISold,
+  IMyProductUIProps,
+} from "./MyProduct.types";
 export default function MyProductUI(props: IMyProductUIProps) {
   return (
     <S.Body>
@@ -35,7 +39,7 @@ export default function MyProductUI(props: IMyProductUIProps) {
           </S.Row>
 
           {props.ProductData?.fetchUseditemsISold.map(
-            (el: any, index: number) => (
+            (el: IFetchUseditemsISold, index: number) => (
               <S.Row
                 key={el._id}
                 id={el._id}
@@ -72,7 +76,7 @@ export default function MyProductUI(props: IMyProductUIProps) {
           </S.Row>
 
           {props.PickedData?.fetchUseditemsIPicked.map(
-            (el: any, index: number) => (
+            (el: IFetchUseditemsIPicked, index: number) => (
               <S.Row
                 key={el._id}
                 id={el._id}

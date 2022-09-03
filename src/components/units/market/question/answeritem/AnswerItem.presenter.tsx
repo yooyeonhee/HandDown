@@ -1,4 +1,3 @@
-import { Modal } from "antd";
 import { getDate } from "../../../../../commons/libraries/utils";
 import * as S from "./AnswerItem.styles";
 import { IAnswerItemUIProps } from "./AnswerItem.types";

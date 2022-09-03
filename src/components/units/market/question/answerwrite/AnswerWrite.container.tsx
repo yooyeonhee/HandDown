@@ -1,5 +1,4 @@
 import { useMutation } from "@apollo/client";
-import { useRouter } from "next/router";
 import { ChangeEvent, MutableRefObject, useRef, useState } from "react";
 import AnswerWriteUI from "./AnswerWrite.presenter";
 import {

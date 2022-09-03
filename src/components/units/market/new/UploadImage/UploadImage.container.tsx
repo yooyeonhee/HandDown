@@ -1,5 +1,4 @@
 import { useMutation } from "@apollo/client";
-import { Modal } from "antd";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
 import UploadsImageUI from "./UploadImage.presenter";
 import { UPLOAD_FILE } from "./UploadImage.query";
