@@ -12,8 +12,8 @@ export interface IQuestionWriteUIProps {
 }
 export interface IQuestionWriteProps {
   isEdit?: boolean;
-  setAddress?: Dispatch<SetStateAction<string>>;
-  setIsEdit?: Dispatch<SetStateAction<boolean>>;
   address?: string;
   el?: IFetchUseditemQuestions;
+  setAddress?: any;
+  setIsEdit?: any;
 }
