@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect, useState } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import NewUI from "./New.presenter";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -28,10 +28,8 @@ export default function New(props: INewProps) {
   const [createUsedItem] = useMutation(CREATE_USED_ITEM);
   const [updateUsedItem] = useMutation(UPDATE_USED_ITEM);
   const [address, setAddress] = useState("");
+  const [detailAddress, setDetailAddress] = useState("");
   const [postCode, setPostCode] = useState("000000");
-  const [lat, setLat] = useState(3.0);
-  const [lng, setLng] = useState(3.0);
-  const [isDelivery, setIsDelivery] = useState(false);
   const [isAddressModalVisible, setIsAddressModalVisible] = useState(false);
 
   const { register, handleSubmit, setValue, trigger } = useForm({
@@ -41,6 +39,9 @@ export default function New(props: INewProps) {
   const onChangeContents = (value: string) => {
     setValue("contents", value === "<p><br></p>" ? "" : value);
     trigger("contents");
+  };
+  const onChangeDetailAddress = (event: ChangeEvent<HTMLInputElement>) => {
+    setDetailAddress(event.currentTarget.value);
   };
 
   function onChangeFiles(index: number, url: string) {
@@ -54,6 +55,11 @@ export default function New(props: INewProps) {
   }
   const onClickCheckTrade = (event: MouseEvent<HTMLInputElement>) => {
     setCheckTrade(event.currentTarget.value);
+    if (event.currentTarget.value === "delivery") {
+      setAddress("");
+      setDetailAddress("");
+      setPostCode("");
+    }
   };
   const addressShowModal = () => {
     setIsAddressModalVisible(true);
@@ -86,9 +92,7 @@ export default function New(props: INewProps) {
             price: data.price,
             useditemAddress: {
               address,
-              addressDetail: data.addressDetail,
-              lat,
-              lng,
+              addressDetail: detailAddress,
               zipcode: postCode,
             },
             images: fileUrls,
@@ -106,39 +110,50 @@ export default function New(props: INewProps) {
     }
   };
   const onClickUpdate = async (data: IData) => {
-    if (
-      !data.name &&
-      !data.remarks &&
-      !data.contents &&
-      !data.price &&
-      !fileUrls &&
-      !address
-    ) {
-      alert("수정한 내용이 없습니다.");
-      return;
-    }
-    const updateUseditemInput: IUpdateUseditemInput = {};
-    if (data.name) updateUseditemInput.name = data.name;
-    if (data.remarks) updateUseditemInput.remarks = data.remarks;
-    if (data.contents) updateUseditemInput.contents = data.contents;
-    if (data.price) updateUseditemInput.price = data.price;
-    if (fileUrls) updateUseditemInput.images = fileUrls;
+    // if (
+    //   !data.name &&
+    //   !data.remarks &&
+    //   !data.contents &&
+    //   !data.price &&
+    //   !fileUrls &&
+    //   !address &&
+    //   !detailAddress
+    // ) {
+    //   alert("수정한 내용이 없습니다.");
+    //   return;
+    // }
+    // const updateUseditemInput: IUpdateUseditemInput = {};
+    // if (data.name) updateUseditemInput.name = data.name;
+    // if (data.remarks) updateUseditemInput.remarks = data.remarks;
+    // if (data.contents) updateUseditemInput.contents = data.contents;
+    // if (data.price) updateUseditemInput.price = data.price;
+    // if (fileUrls) updateUseditemInput.images = fileUrls;
 
-    if (address || data.addressDetail) {
-      updateUseditemInput.useditemAddress = {};
-      if (address) {
-        updateUseditemInput.useditemAddress.address = address;
-        updateUseditemInput.useditemAddress.lat = lat;
-        updateUseditemInput.useditemAddress.lng = lng;
-      }
-      if (data.addressDetail)
-        updateUseditemInput.useditemAddress.addressDetail = data.addressDetail;
-    }
+    // if (address || data.addressDetail) {
+    //   updateUseditemInput.useditemAddress = {};
+    //   if (address) {
+    //     updateUseditemInput.useditemAddress.address = address;
+    //   }
+    //   if (data.addressDetail)
+    //     updateUseditemInput.useditemAddress.addressDetail = detailAddress;
+    // }
+    const useditemAddress = {
+      address,
+      addressDetail: detailAddress,
+      zipcode: postCode,
+    };
     try {
       const result = await updateUsedItem({
         variables: {
           useditemId: router.query.productId,
-          updateUseditemInput,
+          updateUseditemInput: {
+            name: data.name,
+            remarks: data.remarks,
+            contents: data.contents,
+            price: data.price,
+            images: fileUrls,
+            useditemAddress,
+          },
         },
       });
       // setResultRouteId(result.data.updateUseditemInput._id);
@@ -178,10 +193,9 @@ export default function New(props: INewProps) {
       register={register}
       onChangeContents={onChangeContents}
       address={address}
-      setLng={setLng}
-      setLat={setLat}
       postCode={postCode}
       onClickUpdate={onClickUpdate}
+      onChangeDetailAddress={onChangeDetailAddress}
     />
   );
 }

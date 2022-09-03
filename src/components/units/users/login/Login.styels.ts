@@ -38,11 +38,13 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-export const Logo = styled.div`
+export const Logo = styled.img`
   width: 300px;
   height: 80px;
   margin: 20px 0px;
+  cursor: pointer;
 `;
+
 export const Title = styled.div`
   font-size: 35px;
   font-weight: 800;

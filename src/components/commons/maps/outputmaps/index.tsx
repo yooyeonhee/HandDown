@@ -13,7 +13,7 @@ const Map = styled.div`
 export default function OutputKakaoMap(props: any) {
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=387b6d057e55c68fad491f03d9433f43&libraries=services&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=14351527d387b25a6385acb61e882393&libraries=services&autoload=false`;
     document.head.appendChild(script);
 
     script.onload = () => {
@@ -32,7 +32,6 @@ export default function OutputKakaoMap(props: any) {
           // 좌표로 법정동 상세 주소 정보를 요청합니다
           geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
         }
-
         geocoder.addressSearch(
           props.address === "" ? "" : `${props.address}`,
           function (result: any, status: any) {
@@ -42,6 +41,7 @@ export default function OutputKakaoMap(props: any) {
                 result[0].y,
                 result[0].x
               );
+
               // 결과값으로 받은 위치를 마커로 표시합니다
               const marker = new window.kakao.maps.Marker({
                 map: map,

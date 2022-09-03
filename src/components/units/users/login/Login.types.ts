@@ -15,4 +15,5 @@ export interface ILoginUIProps {
   handleSubmit: UseFormHandleSubmit<IData>;
   onClickLogin: (data: IData) => Promise<void>;
   formState: FormState<IData>;
+  onClickToBack: () => void;
 }

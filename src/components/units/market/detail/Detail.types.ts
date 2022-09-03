@@ -40,4 +40,5 @@ export interface IDetailUIProps {
   onClickSubImage: (event: MouseEvent<HTMLImageElement>) => void;
   showBuyConfirm: () => void;
   onClickToEdit: () => void;
+  onClickDelete: () => void;
 }

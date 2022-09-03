@@ -1,4 +1,4 @@
-import { Dispatch, MouseEvent, SetStateAction } from "react";
+import { ChangeEvent, Dispatch, MouseEvent, SetStateAction } from "react";
 import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
 export interface IUsedItemAddress {
@@ -90,12 +90,11 @@ export interface INewUIProps {
   handleSubmit: UseFormHandleSubmit<IData>;
   onChangeContents: (value: string) => void;
   address: string;
-  setLng: Dispatch<SetStateAction<number>>;
-  setLat: Dispatch<SetStateAction<number>>;
   postCode: string;
   isEdit: boolean;
   productData: {
     fetchUseditem: IFetchUseditem;
   };
   onClickUpdate: (data: IData) => Promise<void>;
+  onChangeDetailAddress: (event: ChangeEvent<HTMLInputElement>) => void;
 }

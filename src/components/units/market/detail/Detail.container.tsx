@@ -5,6 +5,7 @@ import { MouseEvent, useEffect, useState } from "react";
 import DetailUI from "./Detail.presenter";
 import {
   CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING,
+  DELETE_USED_ITEM,
   FETCH_USED_ITEM,
   FETCH_USER_LOGGED_IN,
   TOGGLE_USED_ITEM_PICK,
@@ -16,7 +17,9 @@ export default function Detail() {
   const { data: itemData } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.productId },
   });
+  console.log(itemData);
   const [toggleUsedItemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
+  const [deleteUseditem] = useMutation(DELETE_USED_ITEM);
   const [buyAndSell] = useMutation(
     CREATE_POINT_TRANSACTION_OF_BUYING_AND_SELLING
   );
@@ -40,6 +43,17 @@ export default function Detail() {
         },
       ],
     });
+  };
+  const onClickDelete = async () => {
+    try {
+      await deleteUseditem({
+        variables: { useditemId: router.query.productId },
+      });
+      Modal.success({ content: "상품이 삭제되었습니다." });
+      router.push(`/market`);
+    } catch (error: any) {
+      Modal.error({ content: error.message });
+    }
   };
 
   const onClickToEdit = () => {
@@ -95,6 +109,7 @@ export default function Detail() {
       onClickSubImage={onClickSubImage}
       showBuyConfirm={showBuyConfirm}
       onClickToEdit={onClickToEdit}
+      onClickDelete={onClickDelete}
     />
   );
 }

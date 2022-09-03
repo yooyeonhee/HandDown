@@ -43,7 +43,10 @@ export default function DetailUI(props: IDetailUIProps) {
                   src="/detail/icons/edit.png"
                   onClick={props.onClickToEdit}
                 />
-                <S.FuncIcon src="/detail/icons/delete.png" />
+                <S.FuncIcon
+                  src="/detail/icons/delete.png"
+                  onClick={props.onClickDelete}
+                />
               </>
             )}
             {/* <S.ItemIsSold>판매중</S.ItemIsSold> */}

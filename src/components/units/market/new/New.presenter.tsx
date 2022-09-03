@@ -4,7 +4,6 @@ import { v4 as uuidv4 } from "uuid";
 import { INewUIProps } from "./New.types";
 import "react-quill/dist/quill.snow.css";
 import FormInput from "../../../commons/inputs/forminput";
-import LowLine from "../../../commons/lines/rowline";
 import InputKakaoMap from "../../../commons/maps/inputmaps";
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
@@ -76,11 +75,7 @@ export default function NewUI(props: INewUIProps) {
               <S.InputLabel>거래위치</S.InputLabel>
               <S.AddressWrapper>
                 <S.Map>
-                  <InputKakaoMap
-                    address={props.address}
-                    setLng={props.setLng}
-                    setLat={props.setLat}
-                  />
+                  <InputKakaoMap address={props.address} />
                 </S.Map>
                 <S.AddressInputWrapper>
                   <S.PostCode>
@@ -111,7 +106,7 @@ export default function NewUI(props: INewUIProps) {
                       props.productData?.fetchUseditem.useditemAddress
                         .addressDetail
                     }
-                    {...props.register("addressDetail")}
+                    onChange={props.onChangeDetailAddress}
                   />
                 </S.AddressInputWrapper>
               </S.AddressWrapper>

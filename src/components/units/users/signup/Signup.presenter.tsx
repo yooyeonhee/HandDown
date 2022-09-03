@@ -10,7 +10,7 @@ export default function SignupUI(props: ISignupProps) {
       <S.Wrapper>
         <S.MainImg src="/users/signup/signup_main.png" />
         <S.FormWrapper>
-          <S.Logo></S.Logo>
+          <S.Logo src="/logo/logo.png" onClick={props.onClickToBack} />
           <S.Title>회원가입</S.Title>
           <DecoBox />
           <S.InputForm onSubmit={props.handleSubmit(props.onClickSignUp)}>

@@ -50,6 +50,9 @@ export default function Login() {
       Modal.error({ content: error.message });
     }
   };
+  const onClickToBack = () => {
+    router.back();
+  };
   return (
     <LoginUI
       onClickToSignup={onClickToSignup}
@@ -57,6 +60,7 @@ export default function Login() {
       register={register}
       formState={formState}
       handleSubmit={handleSubmit}
+      onClickToBack={onClickToBack}
     />
   );
 }

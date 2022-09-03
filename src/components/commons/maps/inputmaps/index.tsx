@@ -13,8 +13,9 @@ const Map = styled.div`
 `;
 export default function InputKakaoMap(props: any) {
   useEffect(() => {
+    console.log(props.address);
     const script = document.createElement("script");
-    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=387b6d057e55c68fad491f03d9433f43&libraries=services&autoload=false`;
+    script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=14351527d387b25a6385acb61e882393&libraries=services&autoload=false`;
     document.head.appendChild(script);
 
     script.onload = () => {
@@ -45,37 +46,11 @@ export default function InputKakaoMap(props: any) {
                 result[0].y,
                 result[0].x
               );
-              console.log(coords);
-              props.setLng(coords.La);
-              props.setLat(coords.Ma);
               // 결과값으로 받은 위치를 마커로 표시합니다
               const marker = new window.kakao.maps.Marker({
                 map: map,
                 position: coords,
               });
-
-              // 선택한 좌표에 대한 주소
-              // window.kakao.maps.event.addListener(
-              //   map,
-              //   "click",
-              //   function (mouseEvent) {
-              //     searchDetailAddrFromCoords(
-              //       mouseEvent.latLng,
-              //       function (result, status) {
-              //         if (status === window.kakao.maps.services.Status.OK) {
-              //           // const detailAddr = !!result[0].road_address
-              //           //   ? console.log(result[0].road_address.address_name)
-              //           //   : console.log("no");
-
-              //           // 마커를 클릭한 위치에 표시합니다
-              //           marker.setPosition(mouseEvent.latLng);
-              //           marker.setMap(map);
-              //         }
-              //       }
-              //     );
-              //   }
-              // );
-
               // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
               map.setCenter(coords);
             }

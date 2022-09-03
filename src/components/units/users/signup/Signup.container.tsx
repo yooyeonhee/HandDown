@@ -55,12 +55,16 @@ export default function Signup() {
       Modal.error({ content: error.message });
     }
   };
+  const onClickToBack = () => {
+    router.back();
+  };
   return (
     <SignupUI
       register={register}
       handleSubmit={handleSubmit}
       onClickSignUp={onClickSignUp}
       formState={formState}
+      onClickToBack={onClickToBack}
     />
   );
 }

@@ -9,7 +9,7 @@ export default function LoginUI(props: ILoginUIProps) {
       <S.Wrapper>
         <S.MainImg src="/users/signup/login_main.png" />
         <S.FormWrapper>
-          <S.Logo></S.Logo>
+          <S.Logo src="/logo/logo.png" onClick={props.onClickToBack} />
           <S.Title>로그인</S.Title>
           <DecoBox />
           <S.InputForm onSubmit={props.handleSubmit(props.onClickLogin)}>

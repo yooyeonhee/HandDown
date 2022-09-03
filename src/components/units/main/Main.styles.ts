@@ -17,6 +17,7 @@ export const GoShop = styled.div`
   right: 20%;
   bottom: 30%;
   color: #45596c;
+  font-family: "LevelB";
   font-size: 1.2vw;
   font-weight: 400;
   cursor: pointer;
