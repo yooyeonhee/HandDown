@@ -28,6 +28,7 @@ export interface IHeaderUIProps {
   setIsModalVisible: Dispatch<SetStateAction<boolean>>;
   menuSelect: boolean[];
   setMenuSelect: Dispatch<SetStateAction<boolean[]>>;
+  accessToken: string;
 }
 export interface IMenuProps {
   onClick: () => void;

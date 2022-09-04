@@ -1,3 +1,5 @@
+const { off } = require("process");
+
 module.exports = {
   env: {
     browser: true,
@@ -18,5 +20,6 @@ module.exports = {
     "react/prop-types": "off",
     "no-unused-vars": "off",
     "react/no-unescaped-entities": "off",
+    "react/display-name": "off",
   },
 };

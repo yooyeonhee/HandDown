@@ -26,7 +26,7 @@ export default function HeaderUI(props: IHeaderUIProps) {
             src="/header/burger-bar.png"
             onClick={props.onClickMenu}
           />
-          {props.loginData ? (
+          {props.accessToken ? (
             <S.Navbar>
               <S.NavItem onClick={props.onClickToMypage}>
                 {props.loginData?.fetchUserLoggedIn.name}님

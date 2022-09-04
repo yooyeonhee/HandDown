@@ -1,5 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { withAuth } from "../../../../src/components/commons/hocs/withAuth";
 import New from "../../../../src/components/units/market/new/New.container";
 
 const FETCH_USED_ITEM = gql`
@@ -26,10 +27,12 @@ const FETCH_USED_ITEM = gql`
     }
   }
 `;
-export default function EditPage() {
+function EditPage() {
   const router = useRouter();
   const { data: productData, loading } = useQuery(FETCH_USED_ITEM, {
     variables: { useditemId: router.query.productId },
   });
   return loading ? <></> : <New isEdit={true} productData={productData} />;
 }
+
+export default withAuth(EditPage);

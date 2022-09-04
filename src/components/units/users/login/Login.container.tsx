@@ -51,7 +51,7 @@ export default function Login() {
     }
   };
   const onClickToBack = () => {
-    router.back();
+    router.push("/");
   };
   return (
     <LoginUI

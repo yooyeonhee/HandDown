@@ -1,7 +1,9 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { Modal } from "antd";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../../../../commons/store";
 import HeaderUI from "./Header.presenter";
 import { FETCH_USER_LOGGED_IN, LOG_OUT_USER } from "./Header.queries";
 
@@ -13,6 +15,7 @@ export default function Header() {
     `/market/${router.query.productId}`,
     `/market/${router.query.productId}/edit`,
   ];
+  const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -56,7 +59,8 @@ export default function Header() {
   const onClickLogout = async () => {
     try {
       await logoutUser();
-      router.push(`/users/login`);
+      setAccessToken("");
+      router.push(`/`);
     } catch (error: any) {
       Modal.error({ content: error.message });
     }
@@ -84,6 +88,7 @@ export default function Header() {
       setIsModalVisible={setIsModalVisible}
       menuSelect={menuSelect}
       setMenuSelect={setMenuSelect}
+      accessToken={accessToken}
     />
   );
 }

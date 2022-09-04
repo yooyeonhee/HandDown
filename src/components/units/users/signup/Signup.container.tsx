@@ -56,7 +56,7 @@ export default function Signup() {
     }
   };
   const onClickToBack = () => {
-    router.back();
+    router.push("/users/login");
   };
   return (
     <SignupUI

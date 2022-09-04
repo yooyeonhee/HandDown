@@ -1,7 +1,8 @@
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import MyPoint from "../../../src/components/units/users/mypage/mypoint/MyPoint.container";
 import Profile from "../../../src/components/units/users/mypage/profile/Profile.container";
 
-export default function MyPointPage() {
+function MyPointPage() {
   return (
     <>
       <Profile />
@@ -9,3 +10,4 @@ export default function MyPointPage() {
     </>
   );
 }
+export default withAuth(MyPointPage);

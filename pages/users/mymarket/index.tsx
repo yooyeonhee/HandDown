@@ -1,8 +1,8 @@
-import MyPoint from "../../../src/components/units/users/mypage/mypoint/MyPoint.container";
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import MyProduct from "../../../src/components/units/users/mypage/myproduct/MyProduct.container";
 import Profile from "../../../src/components/units/users/mypage/profile/Profile.container";
 
-export default function ProfilePage() {
+function ProfilePage() {
   return (
     <>
       <Profile />
@@ -10,3 +10,4 @@ export default function ProfilePage() {
     </>
   );
 }
+export default withAuth(ProfilePage);
