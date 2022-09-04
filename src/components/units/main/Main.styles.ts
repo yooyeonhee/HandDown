@@ -1,5 +1,13 @@
+import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
-
+export const motion = keyframes`
+  0% {
+    margin-right:5px;
+  }
+  100% {
+    margin-right:15px;
+  }
+`;
 export const Body = styled.div`
   width: 100%;
 `;
@@ -21,6 +29,7 @@ export const GoShop = styled.div`
   font-size: 1.2vw;
   font-weight: 400;
   cursor: pointer;
+  animation: ${motion} 0.3s linear 0s infinite alternate;
 `;
 export const AboutWrapper = styled.div`
   width: 80%;
