@@ -11,9 +11,9 @@ export default function Header() {
   const router = useRouter();
   const HIDDEN_MENU = [
     "/",
-    "/market",
-    `/market/${router.query.productId}`,
-    `/market/${router.query.productId}/edit`,
+    "/market/",
+    `/market/${router.query.productId}/`,
+    `/market/${router.query.productId}/edit/`,
   ];
   const [accessToken, setAccessToken] = useRecoilState(accessTokenState);
   const isHiddenMenu = HIDDEN_MENU.includes(router.asPath);

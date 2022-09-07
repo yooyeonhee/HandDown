@@ -157,7 +157,9 @@ export default function ChargeModal(props: IChargeModalProps) {
         <PointModalTitle>충전하실 금액을 선택해주세요!</PointModalTitle>
         <SelectWrapper>
           <PointSelect name="point" onChange={onChangeValue}>
-            <option value="">충전금액</option>
+            <option disabled value="">
+              충전금액
+            </option>
             <option value="100">100원</option>
             <option value="500">500원</option>
             <option value="2000">2000원</option>
