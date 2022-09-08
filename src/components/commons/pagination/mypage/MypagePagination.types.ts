@@ -1,6 +1,9 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IMypagePaginationProps {
   count?: number;
   refetch: any;
+  setPageNum: Dispatch<SetStateAction<number>>;
 }
 
 export interface IMypagePaginationUIProps {

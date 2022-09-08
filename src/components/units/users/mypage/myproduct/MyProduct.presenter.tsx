@@ -9,6 +9,7 @@ import {
   IMyProductUIProps,
 } from "./MyProduct.types";
 export default function MyProductUI(props: IMyProductUIProps) {
+  console.log(props.pageNum);
   return (
     <S.Body>
       <S.TableOptionWrapper>
@@ -45,7 +46,9 @@ export default function MyProductUI(props: IMyProductUIProps) {
                 id={el._id}
                 onClick={props.onClickTitleToDetail}
               >
-                <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+                <S.ColumnBasic>
+                  {index + 10 * (props.pageNum - 1) + 1}
+                </S.ColumnBasic>
                 <S.ColumnTitle id={el._id}>{el.name}</S.ColumnTitle>
                 <S.ColumnBasic>{el.price.toLocaleString()}원</S.ColumnBasic>
                 {el.soldAt === null ? (
@@ -61,6 +64,7 @@ export default function MyProductUI(props: IMyProductUIProps) {
             <MypagePagination
               refetch={props.refetchProductData}
               count={props.ProductDataCount?.fetchUseditemsCountISold}
+              setPageNum={props.setPageNum}
             />
           </S.Footer>
         </>
@@ -82,7 +86,9 @@ export default function MyProductUI(props: IMyProductUIProps) {
                 id={el._id}
                 onClick={props.onClickTitleToDetail}
               >
-                <S.ColumnBasic>{index + 1}</S.ColumnBasic>
+                <S.ColumnBasic>
+                  {index + 10 * (props.pageNum - 1) + 1}
+                </S.ColumnBasic>
                 <S.ColumnTitle id={el._id}>{el.name}</S.ColumnTitle>
                 <S.ColumnBasic>{el.price.toLocaleString()}원</S.ColumnBasic>
                 {el.soldAt === null ? (
@@ -98,6 +104,7 @@ export default function MyProductUI(props: IMyProductUIProps) {
             <MypagePagination
               refetch={props.refetchPickedData}
               count={props.PickedDataCount?.fetchUseditemsCountIPicked}
+              setPageNum={props.setPageNum}
             />
           </S.Footer>
         </>

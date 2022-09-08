@@ -14,6 +14,7 @@ export default function MyProduct() {
   const router = useRouter();
   const [option, setOption] = useState("sold");
   const [optionSelect, setOptionSelect] = useState([true, false]);
+  const [pageNum, setPageNum] = useState(1);
   const onClickOption = (event: MouseEvent<HTMLDivElement>) => {
     if (event.currentTarget.id === "sold") {
       setOptionSelect([true, false]);
@@ -52,6 +53,8 @@ export default function MyProduct() {
       refetchPickedData={refetchPickedData}
       onClickTitleToDetail={onClickTitleToDetail}
       optionSelect={optionSelect}
+      setPageNum={setPageNum}
+      pageNum={pageNum}
     />
   );
 }

@@ -9,6 +9,7 @@ export default function MypagePagination(props: IMypagePaginationProps) {
   const onClickGetPage = (event: any) => {
     const nowPage = Number(event.currentTarget.id);
     setNowPage(nowPage);
+    props.setPageNum(nowPage);
     props.refetch({ page: nowPage });
   };
 

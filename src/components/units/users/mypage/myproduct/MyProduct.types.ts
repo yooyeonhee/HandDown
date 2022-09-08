@@ -1,5 +1,5 @@
 import { ApolloQueryResult, OperationVariables } from "@apollo/client";
-import { MouseEvent, MouseEventHandler } from "react";
+import { Dispatch, MouseEvent, MouseEventHandler, SetStateAction } from "react";
 
 export interface ISeller {
   name: string;
@@ -45,4 +45,6 @@ export interface IMyProductUIProps {
   ) => Promise<ApolloQueryResult<any>>;
   onClickTitleToDetail: (event: MouseEvent<HTMLDivElement>) => void;
   optionSelect: boolean[];
+  setPageNum: Dispatch<SetStateAction<number>>;
+  pageNum: number;
 }
