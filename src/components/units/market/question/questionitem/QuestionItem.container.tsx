@@ -60,7 +60,11 @@ export default function QuestionItem(props: IQuestionItemProps) {
     setAddress(event.currentTarget.id);
     setIsEdit((prev) => !prev);
   };
-
+  const onClickAnswer = async (event: MouseEvent<HTMLImageElement>) => {
+    // console.log(event.target.id);
+    props.setAnswerAddress(event.currentTarget.id);
+    props.setIsAnswer((prev) => !prev);
+  };
   return (
     <QuestionItemUI
       el={props.el}
